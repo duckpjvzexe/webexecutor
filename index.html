@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Duck Community - Roblox Executors List</title>
+
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+<nav class="navbar">
+  <div class="navbar-left">
+    <div class="navbar-logo"><img src="https://files.catbox.moe/yikccb.webp" alt="Logo"></div>
+    <div class="navbar-title">Duck & Roblox Executors</div>
+  </div>
+  <div class="navbar-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <button class="btn-discord" onclick="window.open('https://discord.gg/ekxRybWgmh','_blank')">
+      <i class="fa-brands fa-discord"></i> Join Discord
+    </button>
+  </div>
+</nav>
+
+<div id="home" class="wrap">
+  <header>
+    <h1>Find the Executor You Want</h1>
+    <p>Search for executor for roblox and visit our site</p>
+    
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="label">Total Executors</div>
+        <div class="value" id="total-count">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Online</div>
+        <div class="value online" id="online-count">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Offline</div>
+        <div class="value offline" id="offline-count">0</div>
+      </div>
+    </div>
+
+    <div class="controls-row">
+      <input id="q" class="search" placeholder="Search executors by name..." aria-label="Search executors" />
+      <select id="filter" class="small-select" aria-label="Filter by status">
+        <option value="all">All</option>
+        <option value="online">Online</option>
+        <option value="offline">Offline</option>
+        <option value="hasVng">Has VNG</option>
+      </select>
+    </div>
+
+    <div class="platform-row">
+      <button class="platform-btn" onclick="showOnly('all')">All Platforms</button>
+      <button class="platform-btn" onclick="showOnly('android')">Android</button>
+      <button class="platform-btn" onclick="showOnly('ios')">iOS</button>
+      <button class="platform-btn" onclick="showOnly('windows')">Windows</button>
+      <button class="platform-btn" onclick="showOnly('macos')">macOS</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="android-executors">
+      <h2 style="text-align:center;margin-bottom:20px">Android Executors</h2>
+      <div id="grid-android" class="grid" aria-live="polite"></div>
+    </section>
+    <section id="ios-executors">
+      <h2 style="text-align:center;margin-bottom:20px">iOS Executors</h2>
+      <div id="grid-ios" class="grid" aria-live="polite"></div>
+    </section>
+    <section id="windows-executors">
+      <h2 style="text-align:center;margin-bottom:20px">Windows Executors</h2>
+      <div id="grid-windows" class="grid" aria-live="polite"></div>
+    </section>
+    <section id="macos-executors">
+      <h2 style="text-align:center;margin-bottom:20px">macOS Executors</h2>
+      <div id="grid-macos" class="grid" aria-live="polite"></div>
+    </section>
+
+    <section id="about">
+      <h2 style="text-align:center;margin-bottom:20px">About</h2>
+      <div class="card show" style="max-width:900px;margin:0 auto">
+        <div class="card-head">
+          <div class="avatar">
+            <i class="fa-solid fa-info-circle" style="font-size:28px;color:var(--accent)"></i>
+          </div>
+          <div class="title-block">
+            <div class="title">About This Site</div>
+          </div>
+        </div>
+        <p style="margin:0;color:var(--muted);line-height:1.6">
+          This website provides a list of Roblox Executors with detailed information about version, status, and supported platforms.
+        </p>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <h2 style="text-align:center;margin-bottom:20px">Contact</h2>
+      <div class="card show" style="max-width:900px;margin:0 auto">
+        <div class="card-head">
+          <div class="avatar">
+            <i class="fa-solid fa-envelope" style="font-size:26px;color:var(--accent)"></i>
+          </div>
+          <div class="title-block">
+            <div class="title">Get in Touch</div>
+          </div>
+        </div>
+        <p style="margin:0;color:var(--muted);line-height:1.6">
+          You can contact us via Discord:
+          <a href="https://discord.gg/ekxRybWgmh" style="color:var(--accent);font-weight:600">discord.gg/ekxRybWgmh</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2025 Duck Community & Executors List — All rights reserved.</footer>
+</div>
+
+<script>
+const data=[
+  {id:1,name:'Krnl',rating:5.0,avatar:'https://avatars.githubusercontent.com/u/9919?s=200&v=4',version:'2.691.868',versionVng:'2.691.867',status:'online',statusVng:'online',platforms:['windows'],downloadUrl:'#dl-krnl',downloadVngUrl:'#dl-krnl-vng'},
+  {id:2,name:'Executor C',rating:4.6,avatar:'https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg',version:'3.0.0',versionVng:null,status:'online',statusVng:null,platforms:['windows','macos'],downloadUrl:'#dl-c',downloadVngUrl:null},
+  {id:3,name:'Executor B',rating:4.2,avatar:'https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg',version:'1.8.0',versionVng:'1.8.0-vng',status:'offline',statusVng:'offline',platforms:['android'],downloadUrl:null,downloadVngUrl:null}
+];
+</script>
+<script src="script.js"></script>
+</body>
+</html>

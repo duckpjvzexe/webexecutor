@@ -44,16 +44,39 @@ function createCard(item){
   head.appendChild(av);head.appendChild(tb);
 
   const row=document.createElement('div');row.className='row-inline';
-  const v1=document.createElement('div');v1.className='row-item';v1.innerHTML=`<div class="label">Version</div><div class="value">${item.version||'—'}</div>`;
-  const v2=document.createElement('div');v2.className='row-item';v2.innerHTML=`<div class="label">VNG Version</div><div class="value">${item.versionVng||'—'}</div>`;
-  const s1=document.createElement('div');s1.className='row-item';const dot1Cls=item.status==='online'?'online':(item.status==='offline'?'offline':'neutral');s1.innerHTML=`<div class="label">Status</div><div class="value status-dot"><span class="dot ${dot1Cls}"></span>${item.status? item.status.charAt(0).toUpperCase()+item.status.slice(1):'—'}</div>`;
-  const s2=document.createElement('div');s2.className='row-item';const dot2Cls=item.statusVng==='online'?'online':(item.statusVng==='offline'?'offline':'neutral');s2.innerHTML=`<div class="label">VNG Status</div><div class="value status-dot"><span class="dot ${dot2Cls}"></span>${item.statusVng? item.statusVng.charAt(0).toUpperCase()+item.statusVng.slice(1):'—'}</div>`;
-  row.appendChild(v1);row.appendChild(v2);row.appendChild(s1);row.appendChild(s2);
+  const v1=document.createElement('div');
+  v1.className='row-item';
+  v1.innerHTML=`<div class="label">Version</div><div class="value">${item.version||'—'}</div>`;
+  row.appendChild(v1);
+
+  if ((item.platforms.includes('android') || item.platforms.includes('ios')) && (item.versionVng || item.statusVng)) {
+    const v2=document.createElement('div');
+    v2.className='row-item';
+    v2.innerHTML=`<div class="label">VNG Version</div><div class="value">${item.versionVng||'—'}</div>`;
+    row.appendChild(v2);
+
+    const s2=document.createElement('div');
+    s2.className='row-item';
+    const dot2Cls=item.statusVng==='online'?'online':(item.statusVng==='offline'?'offline':'neutral');
+    s2.innerHTML=`<div class="label">VNG Status</div><div class="value status-dot"><span class="dot ${dot2Cls}"></span>${item.statusVng? item.statusVng.charAt(0).toUpperCase()+item.statusVng.slice(1):'—'}</div>`;
+    row.appendChild(s2);
+  }
+
+  const s1=document.createElement('div');s1.className='row-item';
+  const dot1Cls=item.status==='online'?'online':(item.status==='offline'?'offline':'neutral');
+  s1.innerHTML=`<div class="label">Status</div><div class="value status-dot"><span class="dot ${dot1Cls}"></span>${item.status? item.status.charAt(0).toUpperCase()+item.status.slice(1):'—'}</div>`;
+  row.appendChild(s1);
 
   const actions=document.createElement('div');actions.className='actions';
-  const dl=document.createElement('button');dl.className='btn primary';dl.textContent='Download';if(item.downloadUrl) dl.onclick=()=>window.open(item.downloadUrl,'_blank');else dl.disabled=true;
-  const dlv=document.createElement('button');dlv.className='btn vng';dlv.textContent='VNG';if(item.downloadVngUrl) dlv.onclick=()=>window.open(item.downloadVngUrl,'_blank');else dlv.disabled=true;
-  actions.appendChild(dl);actions.appendChild(dlv);
+  const dl=document.createElement('button');dl.className='btn primary';dl.textContent='Download';
+  if(item.downloadUrl) dl.onclick=()=>window.open(item.downloadUrl,'_blank');else dl.disabled=true;
+  actions.appendChild(dl);
+
+  if ((item.platforms.includes('android') || item.platforms.includes('ios')) && item.downloadVngUrl) {
+    const dlv=document.createElement('button');dlv.className='btn vng';dlv.textContent='VNG';
+    dlv.onclick=()=>window.open(item.downloadVngUrl,'_blank');
+    actions.appendChild(dlv);
+  }
 
   card.appendChild(head);card.appendChild(row);card.appendChild(actions);
   return card;

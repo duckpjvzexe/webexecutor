@@ -55,56 +55,103 @@ function makeStar(n) {
   return wrap;
 }
 
-function createCard(item){
-  const card=document.createElement('div');card.className='card';
+function createCard(item) {
+  const card = document.createElement('div');
+  card.className = 'card';
   card.dataset.id = String(item.id);
   card.dataset.status = item.status || '';
-  
-  const head=document.createElement('div');head.className='card-head';
-  const av=document.createElement('div');av.className='avatar';
-  const img=document.createElement('img');img.alt=item.name+' avatar';img.src=item.avatar;av.appendChild(img);
-  const tb=document.createElement('div');tb.className='title-block';
-  const title=document.createElement('div');title.className='title';title.textContent=item.name;
-  const stars=makeStar(item.rating||4.5);
-  tb.appendChild(title);tb.appendChild(stars);
-  head.appendChild(av);head.appendChild(tb);
 
-  const row=document.createElement('div');row.className='row-inline';
-  const v1=document.createElement('div');
-  v1.className='row-item';
-  v1.innerHTML=`<div class="label">Version</div><div class="value">${item.version||'—'}</div>`;
+  const head = document.createElement('div');
+  head.className = 'card-head';
+  const av = document.createElement('div');
+  av.className = 'avatar';
+  const img = document.createElement('img');
+  img.alt = item.name + ' avatar';
+  img.src = item.avatar;
+  av.appendChild(img);
+
+  const tb = document.createElement('div');
+  tb.className = 'title-block';
+  const title = document.createElement('div');
+  title.className = 'title';
+  title.textContent = item.name;
+  const stars = makeStar(item.rating || 4.5);
+
+  tb.appendChild(title);
+  tb.appendChild(stars);
+  head.appendChild(av);
+  head.appendChild(tb);
+
+  const row = document.createElement('div');
+  row.className = 'row-inline';
+
+  const v1 = document.createElement('div');
+  v1.className = 'row-item';
+  v1.innerHTML = `
+    <div class="label">Version</div>
+    <div class="value">${item.version || '—'}</div>
+  `;
   row.appendChild(v1);
 
+  const s1 = document.createElement('div');
+  s1.className = 'row-item';
+  const dot1Cls = item.status === 'online' ? 'online' :
+                  (item.status === 'offline' ? 'offline' : 'neutral');
+  s1.innerHTML = `
+    <div class="label">Status</div>
+    <div class="value status-dot">
+      <span class="dot ${dot1Cls}"></span>
+      ${item.status ? item.status.charAt(0).toUpperCase() + item.status.slice(1) : '—'}
+    </div>
+  `;
+  row.appendChild(s1);
+
   if ((item.platforms.includes('android') || item.platforms.includes('ios')) && (item.versionVng || item.statusVng)) {
-    const v2=document.createElement('div');
-    v2.className='row-item';
-    v2.innerHTML=`<div class="label">VNG Version</div><div class="value">${item.versionVng||'—'}</div>`;
+    const v2 = document.createElement('div');
+    v2.className = 'row-item';
+    v2.innerHTML = `
+      <div class="label">VNG Version</div>
+      <div class="value">${item.versionVng || '—'}</div>
+    `;
     row.appendChild(v2);
 
-    const s2=document.createElement('div');
-    s2.className='row-item';
-    const dot2Cls=item.statusVng==='online'?'online':(item.statusVng==='offline'?'offline':'neutral');
-    s2.innerHTML=`<div class="label">VNG Status</div><div class="value status-dot"><span class="dot ${dot2Cls}"></span>${item.statusVng? item.statusVng.charAt(0).toUpperCase()+item.statusVng.slice(1):'—'}</div>`;
+    const s2 = document.createElement('div');
+    s2.className = 'row-item';
+    const dot2Cls = item.statusVng === 'online' ? 'online' :
+                    (item.statusVng === 'offline' ? 'offline' : 'neutral');
+    s2.innerHTML = `
+      <div class="label">VNG Status</div>
+      <div class="value status-dot">
+        <span class="dot ${dot2Cls}"></span>
+        ${item.statusVng ? item.statusVng.charAt(0).toUpperCase() + item.statusVng.slice(1) : '—'}
+      </div>
+    `;
     row.appendChild(s2);
   }
 
-  const s1=document.createElement('div');s1.className='row-item';
-  const dot1Cls=item.status==='online'?'online':(item.status==='offline'?'offline':'neutral');
-  s1.innerHTML=`<div class="label">Status</div><div class="value status-dot"><span class="dot ${dot1Cls}"></span>${item.status? item.status.charAt(0).toUpperCase()+item.status.slice(1):'—'}</div>`;
-  row.appendChild(s1);
+  const actions = document.createElement('div');
+  actions.className = 'actions';
 
-  const actions=document.createElement('div');actions.className='actions';
-  const dl=document.createElement('button');dl.className='btn primary';dl.textContent='Download';
-  if(item.downloadUrl) dl.onclick=()=>window.open(item.downloadUrl,'_blank');else dl.disabled=true;
+  const dl = document.createElement('button');
+  dl.className = 'btn primary';
+  dl.textContent = 'Download';
+  if (item.downloadUrl)
+    dl.onclick = () => window.open(item.downloadUrl, '_blank');
+  else dl.disabled = true;
   actions.appendChild(dl);
 
   if ((item.platforms.includes('android') || item.platforms.includes('ios')) && item.downloadVngUrl) {
-    const dlv=document.createElement('button');dlv.className='btn vng';dlv.textContent='VNG';
-    dlv.onclick=()=>window.open(item.downloadVngUrl,'_blank');
+    const dlv = document.createElement('button');
+    dlv.className = 'btn vng';
+    dlv.textContent = 'VNG';
+    dlv.onclick = () => window.open(item.downloadVngUrl, '_blank');
     actions.appendChild(dlv);
   }
 
-  card.appendChild(head);card.appendChild(row);card.appendChild(actions);
+  card.appendChild(head);
+  card.appendChild(row);
+  card.appendChild(actions);
+
   return card;
 }
 

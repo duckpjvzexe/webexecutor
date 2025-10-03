@@ -23,10 +23,36 @@
 const q=document.getElementById('q');
 const filter=document.getElementById('filter');
 
-function makeStar(n){
-  const wrap=document.createElement('div');wrap.className='rating';
-  for(let i=0;i<5;i++){const s=document.createElement('span');s.textContent='★';wrap.appendChild(s)}
-  const txt=document.createElement('span');txt.style.marginLeft='8px';txt.style.color='#fff';txt.style.opacity=0.9;txt.textContent=(n||0).toFixed(1);wrap.appendChild(txt);return wrap;
+function makeStar(n) {
+  const wrap = document.createElement('div');
+  wrap.className = 'rating';
+  
+  const fullStars = Math.floor(n);
+  const halfStar = (n - fullStars >= 0.5);
+  const totalStars = 5;
+
+  for (let i = 0; i < totalStars; i++) {
+    const s = document.createElement('span');
+    if (i < fullStars) {
+      s.style.color = "#fbbf24";
+      s.textContent = "★";
+    } else if (i === fullStars && halfStar) {
+      s.style.color = "#fbbf24"; 
+      s.textContent = "⯨";
+    } else {
+      s.style.color = "#555";
+      s.textContent = "★";
+    }
+    wrap.appendChild(s);
+  }
+
+  const txt = document.createElement('span');
+  txt.style.marginLeft = '8px';
+  txt.style.color = '#fff';
+  txt.style.opacity = 0.9;
+  txt.textContent = (n || 0).toFixed(1);
+  wrap.appendChild(txt);
+  return wrap;
 }
 
 function createCard(item){

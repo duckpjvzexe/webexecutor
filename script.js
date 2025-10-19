@@ -2,21 +2,41 @@
 // Navbar Active + Smooth Scroll
 // ==========================
 const navLinks = document.querySelectorAll('.navbar-links a');
+const navContainer = document.querySelector('.navbar-links');
+const navToggle = document.querySelector('.navbar-toggle');
 
 navLinks.forEach(link => {
   link.addEventListener('click', function (e) {
-    e.preventDefault();
+    // Smooth scroll
+    const href = this.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const targetId = href.substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+    }
 
-    // Scroll to section smoothly
-    const targetId = this.getAttribute('href').substring(1);
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
-
-    // Active link highlight
     navLinks.forEach(l => l.classList.remove('active'));
     this.classList.add('active');
+
+    if (navContainer.classList.contains('active')) {
+      navContainer.classList.remove('active');
+      if (navToggle) navToggle.innerHTML = '<i class="fa-solid fa-bars"></i>';
+    }
   });
 });
+
+// ==========================
+// Navbar Toggle (Hamburger)
+// ==========================
+if (navToggle) {
+  navToggle.addEventListener('click', () => {
+    navContainer.classList.toggle('active');
+    navToggle.innerHTML = navContainer.classList.contains('active')
+      ? '<i class="fa-solid fa-xmark"></i>'
+      : '<i class="fa-solid fa-bars"></i>';
+  });
+}
 
 // ==========================
 // Helpers

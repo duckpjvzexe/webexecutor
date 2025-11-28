@@ -1,21 +1,4 @@
-fetch('/data.json')
-  .then(res => {
-    if (!res.ok) throw new Error('Failed to load data.json');
-    return res.json();
-  })
-  .then(data => {
-    window.data = data;
-    if (typeof init === 'function') {
-      init();
-    } else {
-      renderExecutors(data);
-    }
-  })
-  .catch(err => {
-    console.error('Load data.json error:', err);
-  });
-
-const links = document.querySelectorAll('.navbar-links a');
+  const links = document.querySelectorAll('.navbar-links a');
   links.forEach(link => {
     link.addEventListener('click', () => {
       links.forEach(l => l.classList.remove('active'));

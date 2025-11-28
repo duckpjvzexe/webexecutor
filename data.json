@@ -1,5 +1,4 @@
 [
-  // Mobile
   {"id":1,"name":"Krnl","rating":5.0,"avatar":"https://wearedevs.net/images/thumbnails/krnl.jpeg","version":"2.695.956","versionVng":"2.696.799","status":"Detected","statusVng":"Detected","platforms":["android"],"downloadUrl":null,"downloadVngUrl":null},
   {"id":2,"name":"Krnl","rating":5.0,"avatar":"https://wearedevs.net/images/thumbnails/krnl.jpeg","version":"2.695","versionVng":"2.697","status":"Detected","statusVng":"Detected","platforms":["ios"],"downloadUrl":null,"downloadVngUrl":null},
   {"id":3,"name":"Arceus X NEO","rating":4.6,"avatar":"https://files.catbox.moe/y8ddt5.png","version":"2.700.937","versionVng":"2.695.956","status":"online","statusVng":"offline","platforms":["android"],"downloadUrl":"https://android.spdmteam.com/","downloadVngUrl":"https://vng.spdmteam.com/"},
@@ -14,7 +13,6 @@
   {"id":12,"name":"Cryptic","rating":4.6,"avatar":"https://img.upanh.moe/ychnyqVn/e8578fff456f.png","version":"2.700.937","versionVng":"2.689.880","status":"online","statusVng":"offline","platforms":["android"],"downloadUrl":"https://www.mediafire.com/file/m6qx2ddc3murw3u/Cryptic.apk/file","downloadVngUrl":"https://www.mediafire.com/file/156tzthxkn3bqez/Cryptic_2.689.880_VNG.apk/file"},
   {"id":13,"name":"Cryptic","rating":4.6,"avatar":"https://img.upanh.moe/ychnyqVn/e8578fff456f.png","version":"2.668.660","versionVng":null,"status":"offline","statusVng":null,"platforms":["ios"],"downloadUrl":null,"downloadVngUrl":null},
   
-  // Pc
   {"id":14,"name":"Volcano","rating":4.7,"avatar":"https://files.catbox.moe/ucf3km.png","version":"8e6e698468a04d3f","versionVng":null,"status":"offline","statusVng":null,"platforms":["windows"],"downloadUrl":"https://volcano.wtf/","downloadVngUrl":null},
   {"id":15,"name":"Bunni.lol","rating":4.6,"avatar":"https://files.catbox.moe/hd9264.webp","version":"e380c8edc8f6477c","versionVng":null,"status":"online","statusVng":null,"platforms":["windows"],"downloadUrl":"https://bom.so/NlJdy6","downloadVngUrl":null},
   {"id":16,"name":"Swift","rating":4.8,"avatar":"https://files.catbox.moe/5krpqt.webp","version":"89b6c70d8f7f42ac","versionVng":null,"status":"offline","statusVng":null,"platforms":["windows"],"downloadUrl":"https://getswift.vip/","downloadVngUrl":null},

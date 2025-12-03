@@ -1,52 +1,27 @@
-const links = document.querySelectorAll('.navbar-links a');
-links.forEach(link => {
-  link.addEventListener('click', () => {
-    links.forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
+  const links = document.querySelectorAll('.navbar-links a');
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      links.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+    });
   });
-});
+  
+    document.querySelectorAll('.navbar-links a').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
 
-document.querySelectorAll('.navbar-links a').forEach(link => {
-  link.addEventListener('click', function (e) {
-    e.preventDefault();
-    const targetId = this.getAttribute('href').substring(1);
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      targetEl.scrollIntoView({ behavior: 'smooth' });
-    }
-
-    document.querySelectorAll('.navbar-links a').forEach(l => l.classList.remove('active'));
-    this.classList.add('active');
+      document.querySelectorAll('.navbar-links a').forEach(l => l.classList.remove('active'));
+      this.classList.add('active');
+    });
   });
-});
-
-let popup = document.getElementById("popup");
-let popupLink = document.getElementById("popup-link");
-let openBtn = document.getElementById("openBtn");
-let copyBtn = document.getElementById("copyBtn");
-let closeBtn = document.getElementById("closeBtn");
-
-let currentLink = null;
-
-function showPopup(url) {
-  currentLink = url;
-  popupLink.textContent = url;
-  popup.classList.remove("hidden");
-}
-
-closeBtn.onclick = () => popup.classList.add("hidden");
-
-openBtn.onclick = () => {
-  if (currentLink) window.open(currentLink, "_blank");
-};
-
-copyBtn.onclick = () => {
-  navigator.clipboard.writeText(currentLink);
-  alert("Copied to clipboard!");
-};
-
-const q = document.getElementById('q');
-const filter = document.getElementById('filter');
+  
+const q=document.getElementById('q');
+const filter=document.getElementById('filter');
 
 function makeStar(n) {
   const wrap = document.createElement('div');
@@ -161,7 +136,7 @@ function createCard(item) {
   dl.className = 'btn primary';
   dl.textContent = 'Download';
   if (item.downloadUrl)
-    dl.onclick = () => showPopup(item.downloadUrl);
+    dl.onclick = () => window.open(item.downloadUrl, '_blank');
   else dl.disabled = true;
   actions.appendChild(dl);
 
@@ -169,7 +144,7 @@ function createCard(item) {
     const dlv = document.createElement('button');
     dlv.className = 'btn vng';
     dlv.textContent = 'VNG';
-    dlv.onclick = () => showPopup(item.downloadVngUrl);
+    dlv.onclick = () => window.open(item.downloadVngUrl, '_blank');
     actions.appendChild(dlv);
   }
 

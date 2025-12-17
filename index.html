@@ -10,267 +10,201 @@
 
 <style>
   :root {
-    --dark-bg: #0d0d0d; /* Background color */
-    --card-bg: #1b1b1b; /* Card background */
-    --text-color: #ffffff; /* Main text color */
-    --muted-text: #9aa4b2; /* Muted text */
-    --accent: #7c3aed; /* Primary accent color */
-    --hover-bg: #242424; /* Hover background */
-    --hover-accent: #3b82f6; /* Accent on hover */
-    --success: #16a34a; /* Online status color */
-    --danger: #ef4444; /* Offline status color */
+    --bg: #0f1724; /* Màu nền */
+    --card: #191919; /* Card màu tối hơn */
+    --text: #ffffff; /* Màu chữ chính */
+    --border: rgba(255, 255, 255, 0.1); /* Viền card */
+    --button-bg: #ffffff; /* Nút trắng */
+    --button-hover: #f2f2f2; /* Hover nút */
+    --accent: #7c3aed; /* Màu hiệu ứng */
+    --muted: #9aa4b2; /* Màu text phụ */
   }
 
   * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    scrollbar-width: thin;
-    scrollbar-color: var(--accent) var(--card-bg);
+    font-family: "Inter", system-ui, sans-serif;
   }
 
   body {
-    margin: 0;
-    background: var(--dark-bg);
-    color: var(--text-color);
+    background: var(--bg);
+    color: var(--text);
     scroll-behavior: smooth;
   }
 
   .navbar {
-    background: var(--card-bg);
+    background: var(--card);
+    padding: 16px 32px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 24px;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  .navbar-logo img {
-    width: 40px;
-    height: 40px;
-    object-fit: cover;
-  }
-
-  .navbar-title {
-    font-weight: 700;
-    font-size: 18px;
+    border-bottom: 1px solid var(--border);
   }
 
   .navbar-links a {
-    color: var(--text-color);
+    color: var(--text);
     text-decoration: none;
+    margin: 0 12px;
     font-weight: 500;
     transition: color 0.25s ease;
   }
 
   .navbar-links a:hover {
     color: var(--accent);
-    transform: translateY(-2px);
   }
 
-  header {
+  .heading {
     text-align: center;
-    margin: 50px 0;
-    padding: 36px 0;
+    padding: 40px 0 20px;
   }
 
-  header h1 {
+  .heading h1 {
     font-size: 36px;
-    color: #fff;
-    margin-bottom: 18px;
+    color: var(--text);
+    margin-bottom: 12px;
   }
 
-  header p {
+  .heading p {
+    color: var(--muted);
     font-size: 16px;
-    color: var(--muted-text);
   }
 
-  .content-wrap {
+  .executor-grid {
     max-width: 1100px;
-    margin: 0 auto;
-    padding: 28px;
-  }
-
-  .stats-row {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-  }
-
-  .controls-row {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 20px;
-  }
-
-  .search,
-  .small-select {
-    padding: 12px 14px;
-    border-radius: 12px;
-    border: none;
-    background-color: var(--hover-bg);
-    color: var(--muted-text);
-  }
-
-  .search:focus,
-  .small-select:focus {
-    outline: none;
-    background-color: rgba(255, 255, 255, 0.08);
-    color: var(--text-color);
-  }
-
-  .grid {
+    margin: 40px auto;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
   }
 
-  .card {
-    background: var(--card-bg);
-    border-radius: 14px;
-    padding: 16px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  .executor-card {
+    background: var(--card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
-  .card:hover {
-    transform: translateY(-6px);
-    border: 1px solid var(--accent);
+  .executor-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
   }
 
-  .card .avatar img {
-    width: 56px;
-    height: 56px;
-    object-fit: cover;
-    border-radius: 12px;
+  .executor-card img {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    margin-bottom: 16px;
   }
 
-  .card .title {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0;
-    color: var(--text-color);
+  .executor-card h2 {
+    font-size: 18px;
+    margin-bottom: 12px;
+    color: var(--text);
   }
 
-  .card .rating {
-    display: flex;
-    gap: 4px;
-    align-items: center;
-    color: #fbbf24;
+  .executor-details {
     font-size: 14px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+
+  .executor-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .executor-status span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .executor-status span.online {
+    background: var(--accent);
+  }
+
+  .executor-status span.offline {
+    background: #ef4444;
   }
 
   footer {
-    margin-top: 40px;
-    padding: 20px 0;
-    color: var(--muted-text);
     text-align: center;
-    background: var(--card-bg);
+    padding: 20px 0;
+    color: var(--muted);
+    font-size: 14px;
+    border-top: 1px solid var(--border);
   }
 </style>
-
 </head>
+
 <body>
   <nav class="navbar">
-    <div class="navbar-left">
-      <div class="navbar-logo">
-        <img src="https://files.catbox.moe/yikccb.webp" alt="Logo">
-      </div>
-      <div class="navbar-title">Roblox Executors</div>
-    </div>
+    <div class="navbar-title"><strong>Roblox Executors</strong></div>
     <div class="navbar-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
-      <button class="btn-discord" onclick="window.open('https://discord.gg/ekxRybWgmh')">
-        <i class="fa-brands fa-discord"></i> Join Discord
-      </button>
     </div>
   </nav>
 
-  <div id="home" class="content-wrap">
-    <header>
-      <h1>Welcome to the Executors List</h1>
-      <p>Search and find the help you need.</p>
-    </header>
+  <header class="heading">
+    <h1>Executor List</h1>
+    <p>Search for Roblox Executors with detailed information</p>
+  </header>
 
-    <main>
-      <div id="executors-grid" class="grid"></div>
-    </main>
-  </div>
+  <main>
+    <div id="executor-list" class="executor-grid"></div>
+  </main>
 
-  <footer>© Duck Community 2025 All rights reserved.</footer>
+  <footer>© 2025 Duck Community — All rights reserved.</footer>
 
   <script>
-    const data = [
+    const executors = [
       {
-        id: 1,
-        name: "Krnl",
-        rating: 4.8,
-        avatar: "https://wearedevs.net/images/thumbnails/krnl.jpeg",
-        status: "Online",
+        name: 'Krnl',
+        avatar: 'https://wearedevs.net/images/thumbnails/krnl.jpeg',
+        version: '2.695.956',
+        status: 'online',
       },
       {
-        id: 2,
-        name: "Arceus X",
-        rating: 4.7,
-        avatar: "https://files.catbox.moe/y8ddt5.png",
-        status: "Detected",
+        name: 'Arceus X NEO',
+        avatar: 'https://files.catbox.moe/y8ddt5.png',
+        version: '2.700.937',
+        status: 'offline',
       },
       {
-        id: 3,
-        name: "Codex",
-        rating: 4.9,
-        avatar: "https://files.catbox.moe/s6hbqj.png",
-        status: "Offline",
+        name: 'Codex',
+        avatar: 'https://files.catbox.moe/s6hbqj.png',
+        version: '2.701.966',
+        status: 'online',
       },
     ];
 
-    function createCard(executor) {
-      const card = document.createElement("div");
-      card.classList.add("card");
-
-      const avatar = document.createElement("div");
-      avatar.classList.add("avatar");
-      avatar.innerHTML = `<img src="${executor.avatar}" alt="${executor.name}">`;
-
-      const title = document.createElement("div");
-      title.classList.add("title");
-      title.textContent = executor.name;
-
-      const rating = document.createElement("div");
-      rating.classList.add("rating");
-      rating.textContent = `Rating: ${executor.rating}`;
-
-      const status = document.createElement("div");
-      status.classList.add("status");
-      status.textContent = `Status: ${executor.status}`;
-
-      card.appendChild(avatar);
-      card.appendChild(title);
-      card.appendChild(rating);
-      card.appendChild(status);
-
-      return card;
-    }
+    const executorList = document.getElementById('executor-list');
 
     function renderExecutors(data) {
-      const grid = document.getElementById("executors-grid");
-      grid.innerHTML = "";
-
+      executorList.innerHTML = '';
       data.forEach((executor) => {
-        const card = createCard(executor);
-        grid.appendChild(card);
+        const card = document.createElement('div');
+        card.classList.add('executor-card');
+
+        card.innerHTML = `
+          <img src="${executor.avatar}" alt="${executor.name}" />
+          <h2>${executor.name}</h2>
+          <div class="executor-details">Version: ${executor.version}</div>
+          <div class="executor-status">
+            <span class="${executor.status === 'online' ? 'online' : 'offline'}"></span>
+            <span>${executor.status.charAt(0).toUpperCase() + executor.status.slice(1)}</span>
+          </div>
+        `;
+        executorList.appendChild(card);
       });
     }
 
-    renderExecutors(data);
+    renderExecutors(executors);
   </script>
 </body>
 </html>

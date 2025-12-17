@@ -8,203 +8,148 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<style>
-  :root {
-    --bg: #0f1724; /* Màu nền */
-    --card: #191919; /* Card màu tối hơn */
-    --text: #ffffff; /* Màu chữ chính */
-    --border: rgba(255, 255, 255, 0.1); /* Viền card */
-    --button-bg: #ffffff; /* Nút trắng */
-    --button-hover: #f2f2f2; /* Hover nút */
-    --accent: #7c3aed; /* Màu hiệu ứng */
-    --muted: #9aa4b2; /* Màu text phụ */
-  }
+<link rel="stylesheet" href="style.css">
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Inter", system-ui, sans-serif;
-  }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    scroll-behavior: smooth;
-  }
-
-  .navbar {
-    background: var(--card);
-    padding: 16px 32px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .navbar-links a {
-    color: var(--text);
-    text-decoration: none;
-    margin: 0 12px;
-    font-weight: 500;
-    transition: color 0.25s ease;
-  }
-
-  .navbar-links a:hover {
-    color: var(--accent);
-  }
-
-  .heading {
-    text-align: center;
-    padding: 40px 0 20px;
-  }
-
-  .heading h1 {
-    font-size: 36px;
-    color: var(--text);
-    margin-bottom: 12px;
-  }
-
-  .heading p {
-    color: var(--muted);
-    font-size: 16px;
-  }
-
-  .executor-grid {
-    max-width: 1100px;
-    margin: 40px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-  }
-
-  .executor-card {
-    background: var(--card);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-
-  .executor-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-  }
-
-  .executor-card img {
-    width: 70px;
-    height: 70px;
-    border-radius: 10px;
-    margin-bottom: 16px;
-  }
-
-  .executor-card h2 {
-    font-size: 18px;
-    margin-bottom: 12px;
-    color: var(--text);
-  }
-
-  .executor-details {
-    font-size: 14px;
-    color: var(--muted);
-    margin-bottom: 12px;
-  }
-
-  .executor-status {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  .executor-status span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-
-  .executor-status span.online {
-    background: var(--accent);
-  }
-
-  .executor-status span.offline {
-    background: #ef4444;
-  }
-
-  footer {
-    text-align: center;
-    padding: 20px 0;
-    color: var(--muted);
-    font-size: 14px;
-    border-top: 1px solid var(--border);
-  }
-</style>
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="navbar-title"><strong>Roblox Executors</strong></div>
-    <div class="navbar-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<nav class="navbar">
+  <div class="navbar-left">
+    <div class="navbar-logo"><img src="https://files.catbox.moe/yikccb.webp" alt="Logo"></div>
+    <div class="navbar-title">Roblox Executors</div>
+  </div>
+  <div class="navbar-links">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <button class="btn-discord" onclick="window.open('https://discord.gg/ekxRybWgmh','_blank')">
+      <i class="fa-brands fa-discord"></i> Join Discord
+    </button>
+  </div>
+</nav>
 
-  <header class="heading">
-    <h1>Executor List</h1>
-    <p>Search for Roblox Executors with detailed information</p>
+<div id="home" class="wrap">
+  <header>
+    <h1>Find the Executor You Want</h1>
+    <p>Search for executor for roblox and visit our site</p>
+    
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="label">Total Executors</div>
+        <div class="value" id="total-count">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Online</div>
+        <div class="value online" id="online-count">0</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">Offline</div>
+        <div class="value offline" id="offline-count">0</div>
+      </div>
+    </div>
+
+    <div class="controls-row">
+      <input id="q" class="search" placeholder="Search executors by name..." aria-label="Search executors" />
+      <select id="filter" class="small-select" aria-label="Filter by status">
+        <option value="all">All</option>
+        <option value="online">Online</option>
+        <option value="offline">Offline</option>
+        <option value="hasVng">Has VNG</option>
+      </select>
+    </div>
+
+    <div class="platform-row">
+      <button class="platform-btn" onclick="showOnly('all')"><i class="fa-solid fa-globe"></i> All Platforms</button>
+      <button class="platform-btn" onclick="showOnly('android')"><i class="fa-brands fa-android"></i> Android</button>
+      <button class="platform-btn" onclick="showOnly('ios')"><i class="fa-brands fa-apple"></i> iOS</button>
+      <button class="platform-btn" onclick="showOnly('windows')"><i class="fa-brands fa-windows"></i> Windows</button>
+      <button class="platform-btn" onclick="showOnly('macos')"><i class="fa-solid fa-laptop"></i> macOS</button>
+    </div>
   </header>
 
   <main>
-    <div id="executor-list" class="executor-grid"></div>
+    <section id="android-executors">
+      <h2 style="text-align:center;margin-bottom:20px"><i class="fa-brands fa-android"></i> Android Executors</h2>
+      <div id="grid-android" class="grid" aria-live="polite"></div>
+    </section>
+    
+    <section id="ios-executors">
+      <h2 style="text-align:center;margin-bottom:20px"><i class="fa-brands fa-apple"></i> iOS Executors</h2>
+      <div id="grid-ios" class="grid" aria-live="polite"></div>
+    </section>
+    
+    <section id="windows-executors">
+      <h2 style="text-align:center;margin-bottom:20px"><i class="fa-brands fa-windows"></i> Windows Executors</h2>
+      <div id="grid-windows" class="grid" aria-live="polite"></div>
+    </section>
+    
+    <section id="macos-executors">
+      <h2 style="text-align:center;margin-bottom:20px"><i class="fa-solid fa-laptop"></i> macOS Executors</h2>
+      <div id="grid-macos" class="grid" aria-live="polite"></div>
+    </section>
+
+    <section id="about">
+      <h2 style="text-align:center;margin-bottom:20px">About</h2>
+      <div class="card show" style="max-width:900px;margin:0 auto">
+        <div class="card-head">
+          <div class="avatar">
+            <i class="fa-solid fa-info-circle" style="font-size:28px;color:var(--accent)"></i>
+          </div>
+          <div class="title-block">
+            <div class="title">About This Site</div>
+          </div>
+        </div>
+        <p style="margin:0;color:var(--muted);line-height:1.6">
+          This website provides a list of Roblox Executors with detailed information about version, status, and supported platforms.
+        </p>
+      </div>
+    </section>
+    
+    <section id="contact">
+      <h2 style="text-align:center;margin-bottom:20px">Contact</h2>
+      <div class="card show" style="max-width:900px;margin:0 auto">
+        <div class="card-head">
+          <div class="avatar">
+            <i class="fa-solid fa-envelope" style="font-size:26px;color:var(--accent)"></i>
+          </div>
+          <div class="title-block">
+            <div class="title">Get in Touch</div>
+          </div>
+        </div>
+        <p style="margin:0;color:var(--muted);line-height:1.6">
+          You can contact us via Discord:
+          <a href="https://discord.gg/ekxRybWgmh" style="color:var(--accent);font-weight:600">discord.gg/ekxRybWgmh</a>
+        </p>
+      </div>
+    </section>
   </main>
 
-  <footer>© 2025 Duck Community — All rights reserved.</footer>
+  <footer>© 2025 Duck Community & Executors List — All rights reserved.</footer>
+</div>
 
-  <script>
-    const executors = [
-      {
-        name: 'Krnl',
-        avatar: 'https://wearedevs.net/images/thumbnails/krnl.jpeg',
-        version: '2.695.956',
-        status: 'online',
-      },
-      {
-        name: 'Arceus X NEO',
-        avatar: 'https://files.catbox.moe/y8ddt5.png',
-        version: '2.700.937',
-        status: 'offline',
-      },
-      {
-        name: 'Codex',
-        avatar: 'https://files.catbox.moe/s6hbqj.png',
-        version: '2.701.966',
-        status: 'online',
-      },
-    ];
+<script>
+const data=[
+  {id:1,name:'Krnl',rating:5.0,avatar:'https://wearedevs.net/images/thumbnails/krnl.jpeg',version:'2.695.956',versionVng:'2.696.799',status:'Detected',statusVng:'Detected',platforms:['android'],downloadUrl:null,downloadVngUrl:null},
+  {id:2,name:'Krnl',rating:5.0,avatar:'https://wearedevs.net/images/thumbnails/krnl.jpeg',version:'2.695',versionVng:'2.697',status:'Detected',statusVng:'Detected',platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
+  {id:3,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/y8ddt5.png',version:'2.700.937',versionVng:'2.695.956',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://android.spdmteam.com/',downloadVngUrl:'https://vng.spdmteam.com/'},
+  {id:4,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.701.966',versionVng:'2.702',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://www.mediafire.com/file/rqx5x21h7dxkur9/DeltaVN+V44+HuyMythic+New+Fix.ipa/file'},
+  {id:5,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/s6hbqj.png',version:'2.701.966',versionVng:'2.700.937',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/8dxf37l1y6xtcct/Codex+v2.701.apk/file',downloadVngUrl:'https://www.mediafire.com/file/4qad70wpo87iaxx/Codex_VNG_V2.700%252864bit%2529.apk/file'},
+  {id:6,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/s6hbqj.png',version:'2.674.782',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file',downloadVngUrl:null},
+  {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.701.966',versionVng:'2.701.966',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://www.mediafire.com/file/scn9z9ljpcdlutz/Delta_VNG_V2.701_Up%252864bit%2529.apk/file'},
+  {id:8,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/y8ddt5.png',version:'2.668.658',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://ios.spdmteam.com/',downloadVngUrl:null},
+  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.700.937',versionVng:'2.700.937',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/7euhz89sdv53moo/Trigon_VNG_V2.700%252864bit%2529.apk/file'},
+  {id:10,name:'Evon',rating:4.4,avatar:'https://evon.cc/favicon.png',version:'2.700.937',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://evon.cc/android/dl-a/Evon.apk',downloadVngUrl:null},
+  {id:11,name:'Vega X',rating:4.4,avatar:'https://vegax.gg/assets/img/V_logo_white.png',version:'2.701.966',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://github.com/1f0yt/community/releases',downloadVngUrl:null},
+  {id:12,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.702.622',versionVng:'2.702.613',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/t7cyqn9145t2zov/Cryptic_2.702.622.apk/file',downloadVngUrl:'https://www.mediafire.com/file/3yq3y5sp46wnn0p/Cryptic_VNG_2.702.613.apk/file'},
+  {id:13,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.668.660',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
 
-    const executorList = document.getElementById('executor-list');
-
-    function renderExecutors(data) {
-      executorList.innerHTML = '';
-      data.forEach((executor) => {
-        const card = document.createElement('div');
-        card.classList.add('executor-card');
-
-        card.innerHTML = `
-          <img src="${executor.avatar}" alt="${executor.name}" />
-          <h2>${executor.name}</h2>
-          <div class="executor-details">Version: ${executor.version}</div>
-          <div class="executor-status">
-            <span class="${executor.status === 'online' ? 'online' : 'offline'}"></span>
-            <span>${executor.status.charAt(0).toUpperCase() + executor.status.slice(1)}</span>
-          </div>
-        `;
-        executorList.appendChild(card);
-      });
-    }
-
-    renderExecutors(executors);
-  </script>
+  {id:14,name:'Volcano',rating:4.8,avatar:'https://files.catbox.moe/ucf3km.png',version:'eaebe135b3ec446b',versionVng:null,status:'online',statusVng:null,platforms:['windows'],downloadUrl:'https://volcano.wtf/',downloadVngUrl:null},
+  {id:15,name:'Bunni.lol',rating:4.6,avatar:'https://files.catbox.moe/hd9264.webp',version:'e380c8edc8f6477c',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://bom.so/NlJdy6',downloadVngUrl:null},
+  {id:16,name:'Swift',rating:4.8,avatar:'https://files.catbox.moe/5krpqt.webp',version:'89b6c70d8f7f42ac',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://getswift.vip/',downloadVngUrl:null},
+  {id:17,name:'Velocity',rating:4.4,avatar:'https://files.catbox.moe/tj6brv.png',version:'f6dd34ecac7b4642',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://gofile.io/d/OAdat2',downloadVngUrl:null},
+  {id:18,name:'Trigon',rating:4.2,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'889d2588b25a43d1',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://trigonevo.com/download?os=windows&fs=mediafire',downloadVngUrl:null}
+];
+</script>
+<script src="script.js"></script>
 </body>
 </html>

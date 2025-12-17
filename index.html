@@ -8,148 +8,269 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --dark-bg: #0d0d0d; /* Background color */
+    --card-bg: #1b1b1b; /* Card background */
+    --text-color: #ffffff; /* Main text color */
+    --muted-text: #9aa4b2; /* Muted text */
+    --accent: #7c3aed; /* Primary accent color */
+    --hover-bg: #242424; /* Hover background */
+    --hover-accent: #3b82f6; /* Accent on hover */
+    --success: #16a34a; /* Online status color */
+    --danger: #ef4444; /* Offline status color */
+  }
+
+  * {
+    box-sizing: border-box;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) var(--card-bg);
+  }
+
+  body {
+    margin: 0;
+    background: var(--dark-bg);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+  }
+
+  .navbar {
+    background: var(--card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .navbar-logo img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+
+  .navbar-title {
+    font-weight: 700;
+    font-size: 18px;
+  }
+
+  .navbar-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.25s ease;
+  }
+
+  .navbar-links a:hover {
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  header {
+    text-align: center;
+    margin: 50px 0;
+    padding: 36px 0;
+  }
+
+  header h1 {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 18px;
+  }
+
+  header p {
+    font-size: 16px;
+    color: var(--muted-text);
+  }
+
+  .content-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 28px;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .controls-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .search,
+  .small-select {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: none;
+    background-color: var(--hover-bg);
+    color: var(--muted-text);
+  }
+
+  .search:focus,
+  .small-select:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-color);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border-radius: 14px;
+    padding: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border: 1px solid var(--accent);
+  }
+
+  .card .avatar img {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .card .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    color: var(--text-color);
+  }
+
+  .card .rating {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    color: #fbbf24;
+    font-size: 14px;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding: 20px 0;
+    color: var(--muted-text);
+    text-align: center;
+    background: var(--card-bg);
+  }
+</style>
 
 </head>
-
 <body>
-<nav class="navbar">
-  <div class="navbar-left">
-    <div class="navbar-logo"><img src="https://files.catbox.moe/yikccb.webp" alt="Logo"></div>
-    <div class="navbar-title">Roblox Executors</div>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <div class="navbar-logo">
+        <img src="https://files.catbox.moe/yikccb.webp" alt="Logo">
+      </div>
+      <div class="navbar-title">Roblox Executors</div>
+    </div>
+    <div class="navbar-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <button class="btn-discord" onclick="window.open('https://discord.gg/ekxRybWgmh')">
+        <i class="fa-brands fa-discord"></i> Join Discord
+      </button>
+    </div>
+  </nav>
+
+  <div id="home" class="content-wrap">
+    <header>
+      <h1>Welcome to the Executors List</h1>
+      <p>Search and find the help you need.</p>
+    </header>
+
+    <main>
+      <div id="executors-grid" class="grid"></div>
+    </main>
   </div>
-  <div class="navbar-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-    <button class="btn-discord" onclick="window.open('https://discord.gg/ekxRybWgmh','_blank')">
-      <i class="fa-brands fa-discord"></i> Join Discord
-    </button>
-  </div>
-</nav>
 
-<div id="home" class="wrap">
-  <header>
-    <h1>Find the Executor You Want</h1>
-    <p>Search for executor for roblox and visit our site</p>
-    
-    <div class="stats-row">
-      <div class="stat-card">
-        <div class="label">Total Executors</div>
-        <div class="value" id="total-count">0</div>
-      </div>
-      <div class="stat-card">
-        <div class="label">Online</div>
-        <div class="value online" id="online-count">0</div>
-      </div>
-      <div class="stat-card">
-        <div class="label">Offline</div>
-        <div class="value offline" id="offline-count">0</div>
-      </div>
-    </div>
+  <footer>© Duck Community 2025 All rights reserved.</footer>
 
-    <div class="controls-row">
-      <input id="q" class="search" placeholder="Search executors by name..." aria-label="Search executors" />
-      <select id="filter" class="small-select" aria-label="Filter by status">
-        <option value="all">All</option>
-        <option value="online">Online</option>
-        <option value="offline">Offline</option>
-        <option value="hasVng">Has VNG</option>
-      </select>
-    </div>
+  <script>
+    const data = [
+      {
+        id: 1,
+        name: "Krnl",
+        rating: 4.8,
+        avatar: "https://wearedevs.net/images/thumbnails/krnl.jpeg",
+        status: "Online",
+      },
+      {
+        id: 2,
+        name: "Arceus X",
+        rating: 4.7,
+        avatar: "https://files.catbox.moe/y8ddt5.png",
+        status: "Detected",
+      },
+      {
+        id: 3,
+        name: "Codex",
+        rating: 4.9,
+        avatar: "https://files.catbox.moe/s6hbqj.png",
+        status: "Offline",
+      },
+    ];
 
-    <div class="platform-row">
-      <button class="platform-btn" onclick="showOnly('all')"><i class="fa-solid fa-globe"></i> All Platforms</button>
-      <button class="platform-btn" onclick="showOnly('android')"><i class="fa-brands fa-android"></i> Android</button>
-      <button class="platform-btn" onclick="showOnly('ios')"><i class="fa-brands fa-apple"></i> iOS</button>
-      <button class="platform-btn" onclick="showOnly('windows')"><i class="fa-brands fa-windows"></i> Windows</button>
-      <button class="platform-btn" onclick="showOnly('macos')"><i class="fa-solid fa-laptop"></i> macOS</button>
-    </div>
-  </header>
+    function createCard(executor) {
+      const card = document.createElement("div");
+      card.classList.add("card");
 
-  <main>
-    <section id="android-executors">
-      <h2 style="text-align:center;margin-bottom:20px"><i class="fa-brands fa-android"></i> Android Executors</h2>
-      <div id="grid-android" class="grid" aria-live="polite"></div>
-    </section>
-    
-    <section id="ios-executors">
-      <h2 style="text-align:center;margin-bottom:20px"><i class="fa-brands fa-apple"></i> iOS Executors</h2>
-      <div id="grid-ios" class="grid" aria-live="polite"></div>
-    </section>
-    
-    <section id="windows-executors">
-      <h2 style="text-align:center;margin-bottom:20px"><i class="fa-brands fa-windows"></i> Windows Executors</h2>
-      <div id="grid-windows" class="grid" aria-live="polite"></div>
-    </section>
-    
-    <section id="macos-executors">
-      <h2 style="text-align:center;margin-bottom:20px"><i class="fa-solid fa-laptop"></i> macOS Executors</h2>
-      <div id="grid-macos" class="grid" aria-live="polite"></div>
-    </section>
+      const avatar = document.createElement("div");
+      avatar.classList.add("avatar");
+      avatar.innerHTML = `<img src="${executor.avatar}" alt="${executor.name}">`;
 
-    <section id="about">
-      <h2 style="text-align:center;margin-bottom:20px">About</h2>
-      <div class="card show" style="max-width:900px;margin:0 auto">
-        <div class="card-head">
-          <div class="avatar">
-            <i class="fa-solid fa-info-circle" style="font-size:28px;color:var(--accent)"></i>
-          </div>
-          <div class="title-block">
-            <div class="title">About This Site</div>
-          </div>
-        </div>
-        <p style="margin:0;color:var(--muted);line-height:1.6">
-          This website provides a list of Roblox Executors with detailed information about version, status, and supported platforms.
-        </p>
-      </div>
-    </section>
-    
-    <section id="contact">
-      <h2 style="text-align:center;margin-bottom:20px">Contact</h2>
-      <div class="card show" style="max-width:900px;margin:0 auto">
-        <div class="card-head">
-          <div class="avatar">
-            <i class="fa-solid fa-envelope" style="font-size:26px;color:var(--accent)"></i>
-          </div>
-          <div class="title-block">
-            <div class="title">Get in Touch</div>
-          </div>
-        </div>
-        <p style="margin:0;color:var(--muted);line-height:1.6">
-          You can contact us via Discord:
-          <a href="https://discord.gg/ekxRybWgmh" style="color:var(--accent);font-weight:600">discord.gg/ekxRybWgmh</a>
-        </p>
-      </div>
-    </section>
-  </main>
+      const title = document.createElement("div");
+      title.classList.add("title");
+      title.textContent = executor.name;
 
-  <footer>© 2025 Duck Community & Executors List — All rights reserved.</footer>
-</div>
+      const rating = document.createElement("div");
+      rating.classList.add("rating");
+      rating.textContent = `Rating: ${executor.rating}`;
 
-<script>
-const data=[
-  {id:1,name:'Krnl',rating:5.0,avatar:'https://wearedevs.net/images/thumbnails/krnl.jpeg',version:'2.695.956',versionVng:'2.696.799',status:'Detected',statusVng:'Detected',platforms:['android'],downloadUrl:null,downloadVngUrl:null},
-  {id:2,name:'Krnl',rating:5.0,avatar:'https://wearedevs.net/images/thumbnails/krnl.jpeg',version:'2.695',versionVng:'2.697',status:'Detected',statusVng:'Detected',platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
-  {id:3,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/y8ddt5.png',version:'2.700.937',versionVng:'2.695.956',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://android.spdmteam.com/',downloadVngUrl:'https://vng.spdmteam.com/'},
-  {id:4,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.701.966',versionVng:'2.702',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://www.mediafire.com/file/rqx5x21h7dxkur9/DeltaVN+V44+HuyMythic+New+Fix.ipa/file'},
-  {id:5,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/s6hbqj.png',version:'2.701.966',versionVng:'2.700.937',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/8dxf37l1y6xtcct/Codex+v2.701.apk/file',downloadVngUrl:'https://www.mediafire.com/file/4qad70wpo87iaxx/Codex_VNG_V2.700%252864bit%2529.apk/file'},
-  {id:6,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/s6hbqj.png',version:'2.674.782',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file',downloadVngUrl:null},
-  {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.701.966',versionVng:'2.701.966',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://www.mediafire.com/file/scn9z9ljpcdlutz/Delta_VNG_V2.701_Up%252864bit%2529.apk/file'},
-  {id:8,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/y8ddt5.png',version:'2.668.658',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://ios.spdmteam.com/',downloadVngUrl:null},
-  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.700.937',versionVng:'2.700.937',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/7euhz89sdv53moo/Trigon_VNG_V2.700%252864bit%2529.apk/file'},
-  {id:10,name:'Evon',rating:4.4,avatar:'https://evon.cc/favicon.png',version:'2.700.937',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://evon.cc/android/dl-a/Evon.apk',downloadVngUrl:null},
-  {id:11,name:'Vega X',rating:4.4,avatar:'https://vegax.gg/assets/img/V_logo_white.png',version:'2.701.966',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://github.com/1f0yt/community/releases',downloadVngUrl:null},
-  {id:12,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.702.622',versionVng:'2.702.613',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/t7cyqn9145t2zov/Cryptic_2.702.622.apk/file',downloadVngUrl:'https://www.mediafire.com/file/3yq3y5sp46wnn0p/Cryptic_VNG_2.702.613.apk/file'},
-  {id:13,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.668.660',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
+      const status = document.createElement("div");
+      status.classList.add("status");
+      status.textContent = `Status: ${executor.status}`;
 
-  {id:14,name:'Volcano',rating:4.8,avatar:'https://files.catbox.moe/ucf3km.png',version:'eaebe135b3ec446b',versionVng:null,status:'online',statusVng:null,platforms:['windows'],downloadUrl:'https://volcano.wtf/',downloadVngUrl:null},
-  {id:15,name:'Bunni.lol',rating:4.6,avatar:'https://files.catbox.moe/hd9264.webp',version:'e380c8edc8f6477c',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://bom.so/NlJdy6',downloadVngUrl:null},
-  {id:16,name:'Swift',rating:4.8,avatar:'https://files.catbox.moe/5krpqt.webp',version:'89b6c70d8f7f42ac',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://getswift.vip/',downloadVngUrl:null},
-  {id:17,name:'Velocity',rating:4.4,avatar:'https://files.catbox.moe/tj6brv.png',version:'f6dd34ecac7b4642',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://gofile.io/d/OAdat2',downloadVngUrl:null},
-  {id:18,name:'Trigon',rating:4.2,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'889d2588b25a43d1',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://trigonevo.com/download?os=windows&fs=mediafire',downloadVngUrl:null}
-];
-</script>
-<script src="script.js"></script>
+      card.appendChild(avatar);
+      card.appendChild(title);
+      card.appendChild(rating);
+      card.appendChild(status);
+
+      return card;
+    }
+
+    function renderExecutors(data) {
+      const grid = document.getElementById("executors-grid");
+      grid.innerHTML = "";
+
+      data.forEach((executor) => {
+        const card = createCard(executor);
+        grid.appendChild(card);
+      });
+    }
+
+    renderExecutors(data);
+  </script>
 </body>
 </html>

@@ -28,8 +28,8 @@ const data = [
 
   // ===== PC (Windows) =====
 
-  {id:12,name:'Bunni.lol',rating:4.6,avatar:'https://files.catbox.moe/hd9264.webp',version:'f8734e043e1e40a2',versionVng:null,status:'online',statusVng:null,platforms:['windows'],downloadUrl:'https://bom.so/ilCo1o',downloadVngUrl:null},
-  {id:13,name:'Velocity',rating:4.4,avatar:'https://files.catbox.moe/tj6brv.png',version:'f8734e043e1e40a2',versionVng:null,status:'online',statusVng:null,platforms:['windows'],downloadUrl:'https://gofile.io/d/qpOZtq',downloadVngUrl:null},
+  {id:12,name:'Bunni.lol',rating:4.6,avatar:'https://files.catbox.moe/hd9264.webp',version:'f8734e043e1e40a2',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://bom.so/ilCo1o',downloadVngUrl:null},
+  {id:13,name:'Velocity',rating:4.4,avatar:'https://files.catbox.moe/tj6brv.png',version:'f8734e043e1e40a2',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://gofile.io/d/qpOZtq',downloadVngUrl:null},
   {id:14,name:'Swift',rating:4.8,avatar:'https://files.catbox.moe/5krpqt.webp',version:'89b6c70d8f7f42ac',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://getswift.vip/',downloadVngUrl:null},
   {id:15,name:'Trigon',rating:4.2,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'889d2588b25a43d1',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://trigonevo.com/download?os=windows&fs=mediafire',downloadVngUrl:null}
 ];

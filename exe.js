@@ -10,18 +10,18 @@ const data = [
   {id:4,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/s6hbqj.png',version:'2.674.782',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file',downloadVngUrl:null},
 
   // Cryptic
-  {id:5,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.705.924',versionVng:'2.704.1057',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/psf968uaeptev92/Cryptic_APK_2.705.924.apk/file',downloadVngUrl:'https://www.mediafire.com/file/ky9tepugo2qwmyi/Cryptic_VNG_APK_2.704.1057.apk/file'},
+  {id:5,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.705.924',versionVng:'2.704.1057',status:'offline',statusVng:'offline',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/psf968uaeptev92/Cryptic_APK_2.705.924.apk/file',downloadVngUrl:'https://www.mediafire.com/file/ky9tepugo2qwmyi/Cryptic_VNG_APK_2.704.1057.apk/file'},
   {id:6,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.668.660',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
 
   // Delta
-  {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.705.924',versionVng:'2.704.1057',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://www.mediafire.com/file/39r6jssuzcfm323/Delta+X+VNG+32Bit+&+64Bit.apk/file'},
+  {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.705.924',versionVng:'2.704.1057',status:'offline',statusVng:'offline',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://www.mediafire.com/file/39r6jssuzcfm323/Delta+X+VNG+32Bit+&+64Bit.apk/file'},
   {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.704.1059',versionVng:'2.704.1059',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://www.mediafire.com/file/8t0pjsxr5ykekdm/DeltaVN+V49+HuyMythic.ipa/file'},
 
   // Evon
   {id:9,name:'Evon',rating:4.4,avatar:'https://evon.cc/favicon.png',version:'2.700.937',versionVng:null,status:'offline',statusVng:null,platforms:['android'],downloadUrl:'https://evon.cc/android/dl-a/Evon.apk',downloadVngUrl:null},
 
   // Trigon
-  {id:10,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.706.750',versionVng:'2.704.1057',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/vpc8fy1taim2k22/Trigon+VNG+32Bit+&+64Bit.apk/file'},
+  {id:10,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.706.750',versionVng:'2.704.1057',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/vpc8fy1taim2k22/Trigon+VNG+32Bit+&+64Bit.apk/file'},
 
   // Vega X
   {id:11,name:'Vega X',rating:4.4,avatar:'https://vegax.gg/assets/img/V_logo_white.png',version:'2.706.750',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://github.com/1f0yt/community/releases',downloadVngUrl:null},

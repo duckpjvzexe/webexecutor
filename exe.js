@@ -21,7 +21,7 @@ const data = [
   {id:9,name:'Evon',rating:4.4,avatar:'https://evon.cc/favicon.png',version:'2.700.937',versionVng:null,status:'offline',statusVng:null,platforms:['android'],downloadUrl:'https://evon.cc/android/dl-a/Evon.apk',downloadVngUrl:null},
 
   // Trigon
-  {id:10,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.705.924',versionVng:'2.704.1057',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/vpc8fy1taim2k22/Trigon+VNG+32Bit+&+64Bit.apk/file'},
+  {id:10,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.706.750',versionVng:'2.704.1057',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/vpc8fy1taim2k22/Trigon+VNG+32Bit+&+64Bit.apk/file'},
 
   // Vega X
   {id:11,name:'Vega X',rating:4.4,avatar:'https://vegax.gg/assets/img/V_logo_white.png',version:'2.706.750',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://github.com/1f0yt/community/releases',downloadVngUrl:null},

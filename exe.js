@@ -2,7 +2,7 @@ const data = [
   // ===== MOBILE (Android / iOS) =====
 
   // Arceus X NEO
-  {id:1,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/y8ddt5.png',version:'2.705.924',versionVng:'2.704.1057',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://android.spdmteam.com/',downloadVngUrl:'https://vng.spdmteam.com/'},
+  {id:1,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/y8ddt5.png',version:'2.706.750',versionVng:'2.706.750',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://android.spdmteam.com/',downloadVngUrl:'https://vng.spdmteam.com/'},
   {id:2,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/y8ddt5.png',version:'2.668.658',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://ios.spdmteam.com/',downloadVngUrl:null},
 
   // Codex

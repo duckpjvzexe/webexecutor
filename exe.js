@@ -6,7 +6,7 @@ const data = [
   {id:2,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/y8ddt5.png',version:'2.668.658',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://ios.spdmteam.com/',downloadVngUrl:null},
 
   // Codex
-  {id:3,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/s6hbqj.png',version:'2.706.750',versionVng:'2.703.1353',status:'offline',statusVng:'offline',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/v2wqjrqpgttq4fs/Codex+v2.706.750.apk/file',downloadVngUrl:'https://www.ngocbonggaming.com/2025/09/link-tai-codex-vng-androi.html'},
+  {id:3,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/s6hbqj.png',version:'2.706.750',versionVng:'2.703.1353',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/f17wgcyt0nznss9/Codex+v2.706.750+FIXED.apk/file',downloadVngUrl:'https://www.ngocbonggaming.com/2025/09/link-tai-codex-vng-androi.html'},
   {id:4,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/s6hbqj.png',version:'2.674.782',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file',downloadVngUrl:null},
 
   // Cryptic

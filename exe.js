@@ -10,7 +10,7 @@ const data = [
   {id:4,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/s6hbqj.png',version:'2.674.782',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file',downloadVngUrl:null},
 
   // Cryptic
-  {id:5,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.705.924',versionVng:'2.704.1057',status:'offline',statusVng:'offline',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/psf968uaeptev92/Cryptic_APK_2.705.924.apk/file',downloadVngUrl:'https://www.mediafire.com/file/ky9tepugo2qwmyi/Cryptic_VNG_APK_2.704.1057.apk/file'},
+  {id:5,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.706.750',versionVng:'2.706.750',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/8h0wnl5eg2xry5g/Cryptic_APK_2.706.750.apk/file',downloadVngUrl:'https://www.mediafire.com/file/f1ddjbmdcrmmkmh/Cryptic_VNG_APK_2.706.750.apk/file'},
   {id:6,name:'Cryptic',rating:4.4,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.668.660',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
 
   // Delta

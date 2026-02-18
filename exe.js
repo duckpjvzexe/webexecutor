@@ -18,7 +18,7 @@ const data = [
   {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.707.734',versionVng:'2.707.734',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://www.mediafire.com/file/ulobxnkaw7q3ff8/DeltaVN+V51+HuyMythic+New+1.ipa/file'},
 
   // Trigon
-  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.706.750',versionVng:'2.706.750',status:'offline',statusVng:'online',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/chrlz76ev0nxohc/Trigon_VNG_V2.706_Fix_L%E1%BB%97i_261.apk/file'},
+  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.706.750',versionVng:'2.706.750',status:'offline',statusVng:'offline',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/chrlz76ev0nxohc/Trigon_VNG_V2.706_Fix_L%E1%BB%97i_261.apk/file'},
 
   // Vega X
   {id:10,name:'Vega X',rating:4.4,avatar:'https://vegax.gg/assets/img/V_logo_white.png',version:'2.708.880',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://github.com/1f0yt/community/releases',downloadVngUrl:null},

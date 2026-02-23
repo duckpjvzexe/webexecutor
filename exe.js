@@ -24,8 +24,8 @@ const data = [
   {id:10,name:'Vega X',rating:4.4,avatar:'https://vegax.gg/assets/img/V_logo_white.png',version:'2.708.880',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://github.com/1f0yt/community/releases',downloadVngUrl:null},
   
   // Ronix
-  {id:11,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.707.734',versionVng:'2.707.735',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://wrdcdn.net/r/154522/1771267720232/Ronix_64Bits-2.707.734.apk',downloadVngUrl:'https://wrdcdn.net/r/154522/1771267795196/Ronix_VNG_64Bits-2.707.735.apk'},
-  {id:12,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.708.878',versionVng:'2.708.878',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://wrdcdn.net/r/154522/1771272556236/Ronix_2.708.878-upd.ipa',downloadVngUrl:'https://wrdcdn.net/r/154522/1771273121135/RonixVN-upd.ipa'},
+  {id:11,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.708.880',versionVng:'2.707.735',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://wrdcdn.net/r/154522/1771863618680/Ronix_64Bits-2.708.880_NEW.apk',downloadVngUrl:'https://wrdcdn.net/r/154522/1771267795196/Ronix_VNG_64Bits-2.707.735.apk'},
+  {id:12,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.709.873',versionVng:'2.709.873',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://wrdcdn.net/r/154522/1771864141368/Ronix_2.709.869-rel.ipa',downloadVngUrl:'https://wrdcdn.net/r/154522/1771864203342/RonixVN_NEW.ipa'},
   
   // ===== PC (Windows) =====
 

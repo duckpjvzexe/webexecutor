@@ -15,7 +15,7 @@ const data = [
 
   // Delta
   {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.708.880',versionVng:'2.707.735',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://www.mediafire.com/file/gxgr56i2sxk1yeh/Delta+X+VNG+V2.707.apk/file'},
-  {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.708.880',versionVng:'2.707.734',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://www.mediafire.com/file/ulobxnkaw7q3ff8/DeltaVN+V51+HuyMythic+New+1.ipa/file'},
+  {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.708.880',versionVng:'2.709.980',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://www.mediafire.com/file/v178w18tr937pgf/DeltaVN+V53+HuyMythic+New+Fix+Update.ipa/file'},
 
   // Trigon
   {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.708.880',versionVng:'2.708.880',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/cyd1thmejxujgdp/Trigon+VNG+V2.708.apk/file'},

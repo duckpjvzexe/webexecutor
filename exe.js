@@ -6,7 +6,7 @@ const data = [
   {id:2,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/6l8y21.webp',version:'2.668.658',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://ios.spdmteam.com/',downloadVngUrl:null},
 
   // Codex
-  {id:3,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.710.707',versionVng:'2.708.880',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/3py7clwl1zxm5oo/Codex_V2.710.707.apk/file',downloadVngUrl:'https://www.mediafire.com/file/borppm2mko3skas/CodeX+VNG+V2.708.apk/file'},
+  {id:3,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.710.707',versionVng:'2.708.880',status:'offline',statusVng:'offline',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/3py7clwl1zxm5oo/Codex_V2.710.707.apk/file',downloadVngUrl:'https://www.mediafire.com/file/borppm2mko3skas/CodeX+VNG+V2.708.apk/file'},
   {id:4,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.674.782',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file',downloadVngUrl:null},
 
   // Cryptic
@@ -18,7 +18,7 @@ const data = [
   {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.710.707',versionVng:'2.709.980',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://tinyurl.com/bdhnamk9'},
 
   // Trigon
-  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.708.880',versionVng:'2.708.880',status:'offline',statusVng:'offline',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/cyd1thmejxujgdp/Trigon+VNG+V2.708.apk/file'},
+  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.710.707',versionVng:'2.708.880',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/cyd1thmejxujgdp/Trigon+VNG+V2.708.apk/file'},
 
   // Vega X
   {id:10,name:'Vega X',rating:4.4,avatar:'https://vegax.gg/assets/img/V_logo_white.png',version:'2.708.880',versionVng:null,status:'offline',statusVng:null,platforms:['android'],downloadUrl:'https://github.com/1f0yt/community/releases',downloadVngUrl:null},

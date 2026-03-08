@@ -2,7 +2,7 @@ const data = [
   // ===== MOBILE (Android / iOS) =====
 
   // Arceus X NEO
-  {id:1,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/6l8y21.webp',version:'2.710.707',versionVng:'2.707.735',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://android.spdmteam.com/',downloadVngUrl:'https://vng.spdmteam.com/'},
+  {id:1,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/6l8y21.webp',version:'2.710.707',versionVng:'2.710.706',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://android.spdmteam.com/',downloadVngUrl:'https://vng.spdmteam.com/'},
   {id:2,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/6l8y21.webp',version:'2.668.658',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://ios.spdmteam.com/',downloadVngUrl:null},
 
   // Codex
@@ -10,7 +10,7 @@ const data = [
   {id:4,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.674.782',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file',downloadVngUrl:null},
 
   // Cryptic
-  {id:5,name:'Cryptic',rating:4.6,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.708.880',versionVng:'2.707.735',status:'offline',statusVng:'offline',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/nyvuz8nr8r98lj6/Cryptic_APK_2.708.880.apk/file',downloadVngUrl:'https://www.mediafire.com/file/0heoyredl4suuqs/Cryptic_VNG_APK_2.707.735.apk/file'},
+  {id:5,name:'Cryptic',rating:4.6,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.710.707',versionVng:'2.710.706',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/p2bnbixk4pxpl25/Cryptic_APK_2.710.707.apk/file',downloadVngUrl:'https://www.mediafire.com/file/s4r9rluhwy9j8cs/Cryptic_VNG_APK_2.710.706.apk/file'},
   {id:6,name:'Cryptic',rating:4.6,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.668.660',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
 
   // Delta
@@ -25,7 +25,7 @@ const data = [
   
   // Ronix
   {id:11,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.710.707',versionVng:'2.710.706',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://wrdcdn.net/r/154522/1772697006689/Ronix_64Bits-2.710.707.apk',downloadVngUrl:'https://wrdcdn.net/r/154522/1772783652438/Ronix_VNG_64Bits-2.710.706.apk'},
-  {id:12,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.710.706',versionVng:'2.709.873',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://wrdcdn.net/r/154522/1772783652332/Ronix_2.710.706.ipa',downloadVngUrl:'https://wrdcdn.net/r/154522/1771864203342/RonixVN_NEW.ipa'},
+  {id:12,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.710.706',versionVng:'2.709.869',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://wrdcdn.net/r/154522/1772929504833/Ronix_2.710.706-2.ipa',downloadVngUrl:'https://wrdcdn.net/r/154522/1772929519604/Ronix%20VN_2.709.869.ipa'},
   
   // ===== PC (Windows) =====
 

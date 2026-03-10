@@ -25,7 +25,7 @@ const data = [
   
   // Ronix
   {id:11,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.710.707',versionVng:'2.710.706',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://wrdcdn.net/r/154522/1772697006689/Ronix_64Bits-2.710.707.apk',downloadVngUrl:'https://wrdcdn.net/r/154522/1772783652438/Ronix_VNG_64Bits-2.710.706.apk'},
-  {id:12,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.710.706',versionVng:'2.709.869',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://wrdcdn.net/r/154522/1772929504833/Ronix_2.710.706-2.ipa',downloadVngUrl:'https://wrdcdn.net/r/154522/1772929519604/Ronix%20VN_2.709.869.ipa'},
+  {id:12,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'2.710.706',versionVng:'2.709.869',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://wrdcdn.net/r/154522/1773010059973/Ronix_2.710.706-3.ipa',downloadVngUrl:'https://wrdcdn.net/r/154522/1772929519604/Ronix%20VN_2.709.869.ipa'},
   
   // ===== PC (Windows) =====
 

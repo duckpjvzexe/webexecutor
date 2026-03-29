@@ -6,7 +6,7 @@ const data = [
   {id:2,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/6l8y21.webp',version:'2.668.658',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://ios.spdmteam.com/',downloadVngUrl:null},
 
   // Codex
-  {id:3,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.711.876',versionVng:'2.711.871',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/no4ydloor0g947q/Codex+V2.711.876.apk/file',downloadVngUrl:'https://www.mediafire.com/file/qn75gsggsa83ki2/CodeX+VNG+V2.711.apk/file'},
+  {id:3,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.713.911',versionVng:'2.711.871',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/kj856dl9k340exb/Codex+v2.713.911.apk/file',downloadVngUrl:'https://www.mediafire.com/file/qn75gsggsa83ki2/CodeX+VNG+V2.711.apk/file'},
   {id:4,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.674.782',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file',downloadVngUrl:null},
 
   // Cryptic

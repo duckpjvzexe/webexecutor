@@ -2,7 +2,7 @@ const data = [
   // ===== MOBILE (Android / iOS) =====
 
   // Arceus X NEO
-  {id:1,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/6l8y21.webp',version:'2.715.1115',versionVng:'2.715.1115',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://android.spdmteam.com/',downloadVngUrl:'https://vng.spdmteam.com/'},
+  {id:1,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/6l8y21.webp',version:'2.716.875',versionVng:'2.715.1115',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://android.spdmteam.com/',downloadVngUrl:'https://vng.spdmteam.com/'},
   {id:2,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/6l8y21.webp',version:'2.668.658',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://ios.spdmteam.com/',downloadVngUrl:null},
 
   // Codex
@@ -14,7 +14,7 @@ const data = [
   {id:6,name:'Cryptic',rating:4.6,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.668.660',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
 
   // Delta
-  {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.714.1091',versionVng:'2.711.871',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://gloopup.net/Delta/android_vn/'},
+  {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.716.875',versionVng:'2.711.871',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://gloopup.net/Delta/android_vn/'},
   {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.714.1077',versionVng:'2.709.980',status:'online',statusVng:'offline',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://tinyurl.com/bdhnamk9'},
 
   // Trigon

@@ -6,7 +6,7 @@ const data = [
   {id:2,name:'Arceus X NEO',rating:4.5,avatar:'https://files.catbox.moe/6l8y21.webp',version:'2.668.658',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://ios.spdmteam.com/',downloadVngUrl:null},
 
   // Codex
-  {id:3,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.716.875',versionVng:'2.715.1115',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/4cadggxj7k5vktx/Codex+v2.716.apk/file',downloadVngUrl:'https://www.mediafire.com/file/5p08n8qhtsv4x3s/Codex+VNG+V2.715+No+Key.apk/file'},
+  {id:3,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.716.875',versionVng:'2.716.875',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://www.mediafire.com/file/4cadggxj7k5vktx/Codex+v2.716.apk/file',downloadVngUrl:'https://www.mediafire.com/file/rckpim3rs9boo20/Code+X+VNG+V2.716+Font+Ch%E1%BB%AF+Th%C6%B0%E1%BB%9Dng.apk/file'},
   {id:4,name:'Codex',rating:4.8,avatar:'https://files.catbox.moe/t43q3r.webp',version:'2.674.782',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:'https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file',downloadVngUrl:null},
 
   // Cryptic
@@ -14,7 +14,7 @@ const data = [
   {id:6,name:'Cryptic',rating:4.6,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.668.660',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
 
   // Delta
-  {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.716.875',versionVng:'2.711.871',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://gloopup.net/Delta/android_vn/'},
+  {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.716.875',versionVng:'2.716.875',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://www.mediafire.com/file/j3cmy9m1ekifsjx/Delta+X+VNG+V2.716.apk/file'},
   {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.714.1077',versionVng:'2.709.980',status:'online',statusVng:'offline',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://tinyurl.com/bdhnamk9'},
 
   // Trigon

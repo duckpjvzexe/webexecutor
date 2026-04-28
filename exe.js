@@ -15,10 +15,10 @@ const data = [
 
   // Delta
   {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.718.1110',versionVng:'2.717.985',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://gloopup.net/Delta/android_vn/'},
-  {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.717.982',versionVng:'2.709.980',status:'online',statusVng:'offline',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://tinyurl.com/bdhnamk9'},
+  {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.717.982',versionVng:'2.717.982',status:'online',statusVng:'offline',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://tinyurl.com/3jyc6a6w'},
 
   // Trigon
-  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.717.985',versionVng:'2.708.880',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://trigonevo.com/download?os=android&fs=Mediafire',downloadVngUrl:'https://www.mediafire.com/file/cyd1thmejxujgdp/Trigon+VNG+V2.708.apk/file'},
+  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.717.985',versionVng:'2.708.880',status:'online',statusVng:'offline',platforms:['android'],downloadUrl:'https://bom.so/dohSwV',downloadVngUrl:'https://www.mediafire.com/file/cyd1thmejxujgdp/Trigon+VNG+V2.708.apk/file'},
 
   // Vega X
   {id:10,name:'Vega X',rating:4.4,avatar:'https://vegax.gg/assets/img/V_logo_white.png',version:'2.716.875',versionVng:null,status:'offline',statusVng:null,platforms:['android'],downloadUrl:'https://github.com/1f0yt/community/releases',downloadVngUrl:null},
@@ -34,5 +34,5 @@ const data = [
   {id:15,name:'Swift',rating:4.8,avatar:'https://files.catbox.moe/5krpqt.webp',version:'89b6c70d8f7f42ac',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://getswift.vip/',downloadVngUrl:null},
   {id:16,name:'Trigon',rating:4.2,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'d599f7fc52a8404c',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://trigonevo.com/download?os=windows&fs=mediafire',downloadVngUrl:null},
   {id:17,name:'Ronix',rating:4.5,avatar:'https://obj.wearedevs.net/images/software/ronix/ronix-020426.webp',version:'df7528517c6849f7',versionVng:null,status:'offline',statusVng:null,platforms:['windows'],downloadUrl:'https://wrdcdn.net/r/154522/1769203129478/RonixInstaller_NEW.exe',downloadVngUrl:null},
-  {id:18,name:'Madium',rating:4.6,avatar:'https://files.catbox.moe/c6crdn.webp',version:'390ba09e7e944154',versionVng:null,status:'online',statusVng:null,platforms:['windows'],downloadUrl:'https://gofile.io/d/T2JLp0',downloadVngUrl:null},
+  {id:18,name:'Madium',rating:4.6,avatar:'https://files.catbox.moe/c6crdn.webp',version:'390ba09e7e944154',versionVng:null,status:'online',statusVng:null,platforms:['windows'],downloadUrl:'https://gofile.io/d/MYmIqW',downloadVngUrl:null},
 ];

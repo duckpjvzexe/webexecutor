@@ -18,7 +18,7 @@ const data = [
   {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.720.1164',versionVng:'2.717.982',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://tinyurl.com/3jyc6a6w'},
 
   // Trigon
-  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.717.985',versionVng:null,status:'offline',statusVng:null,platforms:['android'],downloadUrl:'https://bom.so/dohSwV',downloadVngUrl:null},
+  {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.719.1340',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://bom.so/sOwpnk',downloadVngUrl:null},
 
   // Vega X
   {id:10,name:'Vega X',rating:4.4,avatar:'https://vegax.gg/assets/img/V_logo_white.png',version:'2.719.1340',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://github.com/1f0yt/community/releases',downloadVngUrl:null},

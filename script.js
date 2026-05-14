@@ -1,4 +1,5 @@
 let currentPlatform = 'all';
+let prioritizeOnline = true;
 const q = document.getElementById('q');
 const filter = document.getElementById('filter');
 
@@ -73,13 +74,25 @@ function createCard(item) {
 function getFiltered() {
   const qv = q.value.trim().toLowerCase();
   const fv = filter.value;
-  return DATA.filter(it => {
+  let result = DATA.filter(it => {
     if (qv && ![it.name, it.version, it.versionVng, it.status, it.statusVng].join(' ').toLowerCase().includes(qv)) return false;
     if (fv === 'online' && it.status !== 'online') return false;
     if (fv === 'offline' && it.status !== 'offline') return false;
     if (fv === 'hasVng' && !(it.versionVng || it.downloadVngUrl)) return false;
     return true;
   });
+
+  if (prioritizeOnline) {
+    result.sort((a, b) => {
+      if (a.status === 'online' && b.status !== 'online') return -1;
+      if (a.status !== 'online' && b.status === 'online') return 1;
+      return b.rating - a.rating;
+    });
+  } else {
+    result.sort((a, b) => b.rating - a.rating);
+  }
+
+  return result;
 }
 
 function renderAll() {
@@ -124,13 +137,23 @@ function showOnly(platform, btn) {
   renderAll();
 }
 
+function togglePriority() {
+  prioritizeOnline = !prioritizeOnline;
+  renderAll();
+}
+
 q.addEventListener('input', renderAll);
 filter.addEventListener('change', renderAll);
-renderAll();
 
-document.addEventListener('contextmenu', e => e.preventDefault());
 document.addEventListener('keydown', e => {
   if (e.keyCode === 123) { e.preventDefault(); return false; }
   if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) { e.preventDefault(); return false; }
   if (e.ctrlKey && e.keyCode === 85) { e.preventDefault(); return false; }
+  if ((e.key === 'p' || e.key === 'P') && !q.matches(':focus')) {
+    togglePriority();
+  }
 });
+
+renderAll();
+
+document.addEventListener('contextmenu', e => e.preventDefault());

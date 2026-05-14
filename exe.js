@@ -14,8 +14,8 @@ const data = [
   {id:6,name:'Cryptic',rating:4.6,avatar:'https://img.upanh.moe/ychnyqVn/e8578fff456f.png',version:'2.668.660',versionVng:null,status:'offline',statusVng:null,platforms:['ios'],downloadUrl:null,downloadVngUrl:null},
 
   // Delta
-  {id:7,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.720.1167',versionVng:'2.717.985',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://gloopup.net/Delta/android_vn/'},
-  {id:8,name:'Delta',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.720.1164',versionVng:'2.717.982',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://tinyurl.com/3jyc6a6w'},
+  {id:7,name:'Delta (Ban Risk)',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.720.1167',versionVng:'2.717.985',status:'online',statusVng:'online',platforms:['android'],downloadUrl:'https://gloopup.net/Delta/android/',downloadVngUrl:'https://gloopup.net/Delta/android_vn/'},
+  {id:8,name:'Delta (Ban Risk)',rating:4.9,avatar:'https://deltaexploits.gg/assets/favicon.ico',version:'2.720.1164',versionVng:'2.717.982',status:'online',statusVng:'online',platforms:['ios'],downloadUrl:'https://gloopup.net/Delta/ios/',downloadVngUrl:'https://tinyurl.com/3jyc6a6w'},
 
   // Trigon
   {id:9,name:'Trigon',rating:4.5,avatar:'https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp',version:'2.719.1340',versionVng:null,status:'online',statusVng:null,platforms:['android'],downloadUrl:'https://bom.so/sOwpnk',downloadVngUrl:null},

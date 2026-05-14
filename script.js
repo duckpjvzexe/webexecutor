@@ -1,269 +1,136 @@
-  const links = document.querySelectorAll('.navbar-links a');
-  links.forEach(link => {
-    link.addEventListener('click', () => {
-      links.forEach(l => l.classList.remove('active'));
-      link.classList.add('active');
-    });
-  });
-  
-    document.querySelectorAll('.navbar-links a').forEach(link => {
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href').substring(1);
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) {
-        targetEl.scrollIntoView({ behavior: 'smooth' });
-      }
+let currentPlatform = 'all';
+const q = document.getElementById('q');
+const filter = document.getElementById('filter');
 
-      document.querySelectorAll('.navbar-links a').forEach(l => l.classList.remove('active'));
-      this.classList.add('active');
-    });
-  });
-  
-const q=document.getElementById('q');
-const filter=document.getElementById('filter');
-
-function makeStar(n) {
-  const wrap = document.createElement('div');
-  wrap.className = 'rating';
-  
-  const fullStars = Math.floor(n);
-  const halfStar = (n - fullStars >= 0.5);
-  const totalStars = 5;
-
-  for (let i = 0; i < totalStars; i++) {
-    const s = document.createElement('span');
-    if (i < fullStars) {
-      s.style.color = "#fbbf24";
-      s.textContent = "★";
-    } else if (i === fullStars && halfStar) {
-      s.style.color = "#fbbf24"; 
-      s.textContent = "⯨";
-    } else {
-      s.style.color = "#555";
-      s.textContent = "★";
-    }
-    wrap.appendChild(s);
+function stars(n) {
+  const full = Math.floor(n), half = (n - full) >= 0.5;
+  let s = '';
+  for (let i = 0; i < 5; i++) {
+    const cls = i < full ? 'filled' : (i === full && half ? 'half' : 'empty');
+    s += `<span class="star ${cls}">★</span>`;
   }
-
-  const txt = document.createElement('span');
-  txt.style.marginLeft = '8px';
-  txt.style.color = '#fff';
-  txt.style.opacity = 0.9;
-  txt.textContent = (n || 0).toFixed(1);
-  wrap.appendChild(txt);
-  return wrap;
+  return `<div class="star-rating">${s}<span class="rating-val">${n.toFixed(1)}</span></div>`;
 }
+
+function dotCls(st) { return st === 'online' ? 'online' : 'offline'; }
+function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : '—'; }
 
 function createCard(item) {
-  const card = document.createElement('div');
-  card.className = 'card';
-  card.dataset.id = String(item.id);
-  card.dataset.status = item.status || '';
+  const hasMobile = item.platforms.includes('android') || item.platforms.includes('ios');
+  const hasVng = hasMobile && (item.versionVng || item.statusVng);
 
-  const head = document.createElement('div');
-  head.className = 'card-head';
-  const av = document.createElement('div');
-  av.className = 'avatar';
-  const img = document.createElement('img');
-  img.alt = item.name + ' avatar';
-  img.src = item.avatar;
-  av.appendChild(img);
-
-  const tb = document.createElement('div');
-  tb.className = 'title-block';
-  const title = document.createElement('div');
-  title.className = 'title';
-  title.textContent = item.name;
-  const stars = makeStar(item.rating || 4.5);
-
-  tb.appendChild(title);
-  tb.appendChild(stars);
-  head.appendChild(av);
-  head.appendChild(tb);
-
-  const row = document.createElement('div');
-  row.className = 'row-inline';
-
-  const v1 = document.createElement('div');
-  v1.className = 'row-item';
-  v1.innerHTML = `
-    <div class="label">Version</div>
-    <div class="value">${item.version || '—'}</div>
-  `;
-  row.appendChild(v1);
-
-  const s1 = document.createElement('div');
-  s1.className = 'row-item';
-  const dot1Cls = item.status === 'online' ? 'online' :
-                  (item.status === 'offline' ? 'offline' : 'neutral');
-  s1.innerHTML = `
-    <div class="label">Status</div>
-    <div class="value status-dot">
-      <span class="dot ${dot1Cls}"></span>
-      ${item.status ? item.status.charAt(0).toUpperCase() + item.status.slice(1) : '—'}
-    </div>
-  `;
-  row.appendChild(s1);
-
-  if ((item.platforms.includes('android') || item.platforms.includes('ios')) && (item.versionVng || item.statusVng)) {
-    const v2 = document.createElement('div');
-    v2.className = 'row-item';
-    v2.innerHTML = `
-      <div class="label">VNG Version</div>
-      <div class="value">${item.versionVng || '—'}</div>
-    `;
-    row.appendChild(v2);
-
-    const s2 = document.createElement('div');
-    s2.className = 'row-item';
-    const dot2Cls = item.statusVng === 'online' ? 'online' :
-                    (item.statusVng === 'offline' ? 'offline' : 'neutral');
-    s2.innerHTML = `
-      <div class="label">VNG Status</div>
-      <div class="value status-dot">
-        <span class="dot ${dot2Cls}"></span>
-        ${item.statusVng ? item.statusVng.charAt(0).toUpperCase() + item.statusVng.slice(1) : '—'}
+  let vngRows = '';
+  if (hasVng) {
+    vngRows = `
+      <div class="row-item">
+        <div class="label">VNG Version</div>
+        <div class="value mono">${item.versionVng || '—'}</div>
       </div>
-    `;
-    row.appendChild(s2);
+      <div class="row-item">
+        <div class="label">VNG Status</div>
+        <div class="value status-val"><span class="dot ${dotCls(item.statusVng)}"></span>${cap(item.statusVng)}</div>
+      </div>`;
   }
 
-  const actions = document.createElement('div');
-  actions.className = 'actions';
+  const dlDisabled = item.downloadUrl ? '' : 'disabled';
+  const dlClick = item.downloadUrl ? `onclick="window.open('${item.downloadUrl}','_blank')"` : '';
+  const vngBtn = (hasMobile && item.downloadVngUrl)
+    ? `<button class="btn btn-vng" onclick="window.open('${item.downloadVngUrl}','_blank')">VNG</button>`
+    : '';
 
-  const dl = document.createElement('button');
-  dl.className = 'btn primary';
-  dl.textContent = 'Download';
-  if (item.downloadUrl)
-    dl.onclick = () => window.open(item.downloadUrl, '_blank');
-  else dl.disabled = true;
-  actions.appendChild(dl);
+  const warn = item.warn
+    ? `<div class="warn-badge"><span class="warn-dot"></span>High ban risk</div>`
+    : '';
 
-  if ((item.platforms.includes('android') || item.platforms.includes('ios')) && item.downloadVngUrl) {
-    const dlv = document.createElement('button');
-    dlv.className = 'btn vng';
-    dlv.textContent = 'VNG';
-    dlv.onclick = () => window.open(item.downloadVngUrl, '_blank');
-    actions.appendChild(dlv);
-  }
-
-  card.appendChild(head);
-  card.appendChild(row);
-  card.appendChild(actions);
-
-  return card;
+  return `
+    <div class="card${item.warn ? ' card-warn' : ''}">
+      ${warn}
+      <div class="card-head">
+        <div class="avatar"><img src="${item.avatar}" alt="${item.name}" onerror="this.style.display='none'" /></div>
+        <div class="title-block">
+          <div class="title">${item.name}</div>
+          ${stars(item.rating)}
+        </div>
+      </div>
+      <div class="row-inline">
+        <div class="row-item">
+          <div class="label">Version</div>
+          <div class="value mono">${item.version || '—'}</div>
+        </div>
+        <div class="row-item">
+          <div class="label">Status</div>
+          <div class="value status-val"><span class="dot ${dotCls(item.status)}"></span>${cap(item.status)}</div>
+        </div>
+        ${vngRows}
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" ${dlDisabled} ${dlClick}>Download</button>
+        ${vngBtn}
+      </div>
+    </div>`;
 }
 
-function renderPlatform(platform){
-  const grid=document.getElementById(`grid-${platform}`);
-  const section=document.getElementById(`${platform}-executors`);
-  if(!grid || !section) return;
-  let list=data.filter(it=>it.platforms&&it.platforms.includes(platform));
-  if(q.value){
-    const qv=q.value.trim().toLowerCase();
-    list=list.filter(it=>[it.name,it.version,it.versionVng,it.status,it.statusVng].join(' ').toLowerCase().includes(qv));
-  }
-  if(filter.value==='online') list=list.filter(it=>it.status==='online');
-  if(filter.value==='offline') list=list.filter(it=>it.status==='offline');
-  if(filter.value==='hasVng') list=list.filter(it=>(it.versionVng||it.downloadVngUrl));
-
-  grid.innerHTML='';
-  if(!list.length){section.style.display='none'; updateStats(); return;} else {section.style.display='block';}
-
-  list.forEach(it=>{
-    const card=createCard(it);
-    grid.appendChild(card);
-    setTimeout(()=>card.classList.add('show'),50);
-  });
-
-  updateStats();
-}
-
-function updateStats() {
+function getFiltered() {
   const qv = q.value.trim().toLowerCase();
-  let list = data.filter(it => {
-    let match = true;
-    if(qv) match = [it.name,it.version,it.versionVng,it.status,it.statusVng]
-                   .join(' ').toLowerCase().includes(qv);
-    if(filter.value==='online') match = match && it.status==='online';
-    if(filter.value==='offline') match = match && it.status==='offline';
-    if(filter.value==='hasVng') match = match && (it.versionVng||it.downloadVngUrl);
-    return match;
+  const fv = filter.value;
+  return DATA.filter(it => {
+    if (qv && ![it.name, it.version, it.versionVng, it.status, it.statusVng].join(' ').toLowerCase().includes(qv)) return false;
+    if (fv === 'online' && it.status !== 'online') return false;
+    if (fv === 'offline' && it.status !== 'offline') return false;
+    if (fv === 'hasVng' && !(it.versionVng || it.downloadVngUrl)) return false;
+    return true;
+  });
+}
+
+function renderAll() {
+  const list = getFiltered();
+  const platforms = ['android', 'ios', 'windows', 'macos'];
+  let anyVisible = false;
+
+  platforms.forEach(p => {
+    const section = document.getElementById(`${p}-section`);
+    const grid = document.getElementById(`grid-${p}`);
+    const cnt = document.getElementById(`${p}-count`);
+    if (!section || !grid) return;
+
+    const show = currentPlatform === 'all' || currentPlatform === p;
+    if (!show) { section.style.display = 'none'; return; }
+
+    const items = list.filter(it => it.platforms.includes(p));
+    cnt.textContent = items.length;
+    if (!items.length) { section.style.display = 'none'; return; }
+
+    section.style.display = 'block';
+    anyVisible = true;
+    grid.innerHTML = items.map(it => createCard(it)).join('');
+    grid.querySelectorAll('.card').forEach((el, i) => {
+      setTimeout(() => el.classList.add('show'), i * 40);
+    });
   });
 
-  const total = list.reduce((sum,it)=> sum + (it.platforms ? it.platforms.length : 0), 0);
-  const online = list.reduce((sum,it)=> sum + (it.status==='online' ? it.platforms.length : 0), 0);
-  const offline = list.reduce((sum,it)=> sum + (it.status==='offline' ? it.platforms.length : 0), 0);
+  document.getElementById('empty-state').style.display = anyVisible ? 'none' : 'block';
 
-  document.getElementById('total-count').textContent = total;
+  const online = list.filter(it => it.status === 'online').length;
+  const offline = list.filter(it => it.status === 'offline').length;
+  document.getElementById('total-count').textContent = list.length;
   document.getElementById('online-count').textContent = online;
   document.getElementById('offline-count').textContent = offline;
 }
 
-function renderAll() {
-  const platforms = ['android','ios','windows','macos'];
-  platforms.forEach(platform => {
-    const grid = document.getElementById(`grid-${platform}`);
-    const section = document.getElementById(`${platform}-executors`);
-    if(!grid || !section) return;
-
-    let list = data.filter(it => it.platforms && it.platforms.includes(platform));
-
-    if(q.value){
-      const qv = q.value.trim().toLowerCase();
-      list = list.filter(it => [it.name,it.version,it.versionVng,it.status,it.statusVng].join(' ').toLowerCase().includes(qv));
-    }
-    if(filter.value==='online') list = list.filter(it=>it.status==='online');
-    if(filter.value==='offline') list = list.filter(it=>it.status==='offline');
-    if(filter.value==='hasVng') list = list.filter(it=>(it.versionVng||it.downloadVngUrl));
-
-    grid.innerHTML='';
-    if(!list.length){section.style.display='none'; return;} else {section.style.display='block';}
-    list.forEach(it=>{
-      const card=createCard(it);
-      grid.appendChild(card);
-      setTimeout(()=>card.classList.add('show'),50);
-    });
-  });
-
-  updateStats();
+function showOnly(platform, btn) {
+  currentPlatform = platform;
+  document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderAll();
 }
 
-function showOnly(platform){
-  const btns=document.querySelectorAll('.platform-btn');
-  btns.forEach(b=>b.classList.remove('active'));
+q.addEventListener('input', renderAll);
+filter.addEventListener('change', renderAll);
+renderAll();
 
-  if(platform==='all'){
-    ['android','ios','windows','macos'].forEach(p=>document.getElementById(p+'-executors').style.display='block');
-    renderAll();
-    if(btns[0]) btns[0].classList.add('active');
-  } else {
-    ['android','ios','windows','macos'].forEach(p=>document.getElementById(p+'-executors').style.display=(p===platform?'block':'none'));
-    renderPlatform(platform);
-    btns.forEach(btn=>{
-      if(btn.textContent.trim().toLowerCase().includes(platform)) btn.classList.add('active');
-    });
-  }
-}
-
-if(q) q.addEventListener('input',()=>renderAll());
-if(filter) filter.addEventListener('change',()=>renderAll());
-
-showOnly('all');
-
-document.addEventListener('contextmenu', event => event.preventDefault());
-document.addEventListener('keydown', function(event) {
-    if (event.keyCode === 123) {
-        event.preventDefault();
-        return false;
-    }
-    if ((event.ctrlKey && event.shiftKey && (event.keyCode === 73 || event.keyCode === 74))) {
-        event.preventDefault();
-        return false;
-    }
-    if (event.ctrlKey && event.keyCode === 85) {
-        event.preventDefault();
-        return false;
-    }
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+  if (e.keyCode === 123) { e.preventDefault(); return false; }
+  if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) { e.preventDefault(); return false; }
+  if (e.ctrlKey && e.keyCode === 85) { e.preventDefault(); return false; }
 });

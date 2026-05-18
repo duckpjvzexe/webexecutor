@@ -1,5 +1,5 @@
 const DATA = [
-  {name:"Arceus X NEO",rating:4.5,avatar:"https://files.catbox.moe/6l8y21.webp",version:"2.719.1340",versionVng:"2.716.875",status:"online",statusVng:"offline",platforms:["android"],downloadUrl:"https://android.spdmteam.com/",downloadVngUrl:"https://vng.spdmteam.com/"},
+  {name:"Arceus X NEO",rating:4.5,avatar:"https://files.catbox.moe/6l8y21.webp",version:"2.720.1167",versionVng:"2.716.875",status:"online",statusVng:"offline",platforms:["android"],downloadUrl:"https://android.spdmteam.com/",downloadVngUrl:"https://vng.spdmteam.com/"},
   {name:"Arceus X NEO",rating:4.5,avatar:"https://files.catbox.moe/6l8y21.webp",version:"2.668.658",versionVng:null,status:"offline",statusVng:null,platforms:["ios"],downloadUrl:"https://ios.spdmteam.com/",downloadVngUrl:null},
   
   {name:"Codex",rating:4.8,avatar:"https://files.catbox.moe/t43q3r.webp",version:"2.719.1340",versionVng:"2.720.1167",status:"online",statusVng:"online",platforms:["android"],downloadUrl:"https://www.mediafire.com/file/0r2bsyo4q169wcs/Codex+v2.719.apk/file",downloadVngUrl:"https://bom.so/2e760g"},

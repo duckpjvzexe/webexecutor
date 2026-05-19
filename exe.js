@@ -2,7 +2,7 @@ const DATA = [
   {name:"Arceus X NEO",rating:4.5,avatar:"https://files.catbox.moe/6l8y21.webp",version:"2.720.1167",versionVng:"2.716.875",status:"online",statusVng:"offline",platforms:["android"],downloadUrl:"https://android.spdmteam.com/",downloadVngUrl:"https://vng.spdmteam.com/"},
   {name:"Arceus X NEO",rating:4.5,avatar:"https://files.catbox.moe/6l8y21.webp",version:"2.668.658",versionVng:null,status:"offline",statusVng:null,platforms:["ios"],downloadUrl:"https://ios.spdmteam.com/",downloadVngUrl:null},
   
-  {name:"Codex",rating:4.8,avatar:"https://files.catbox.moe/t43q3r.webp",version:"2.720.1167",versionVng:"2.720.1167",status:"online",statusVng:"online",platforms:["android"],downloadUrl:"https://www.mediafire.com/file/0r2bsyo4q169wcs/Codex+v2.719.apk/file",downloadVngUrl:"https://bom.so/2e760g"},
+  {name:"Codex",rating:4.8,avatar:"https://files.catbox.moe/t43q3r.webp",version:"2.720.1167",versionVng:"2.720.1167",status:"online",statusVng:"online",platforms:["android"],downloadUrl:"https://www.mediafire.com/file/h6jr4s90d6o62qw/Codex+v2.270.apk/file",downloadVngUrl:"https://bom.so/2e760g"},
   {name:"Codex",rating:4.8,avatar:"https://files.catbox.moe/t43q3r.webp",version:"2.674.782",versionVng:null,status:"offline",statusVng:null,platforms:["ios"],downloadUrl:"https://www.mediafire.com/file/7afzer5xxo1110n/Codex_2.674.782.ipa/file",downloadVngUrl:null},
   
   {name:"Delta",rating:4.9,avatar:"https://deltaexploits.gg/assets/favicon.ico",version:"2.720.1167",versionVng:"2.720.1167",status:"online",statusVng:"online",platforms:["android"],downloadUrl:"https://gloopup.net/Delta/android/",downloadVngUrl:"https://bom.so/4z8oyt",warn:true},

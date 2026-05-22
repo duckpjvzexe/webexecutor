@@ -13,7 +13,7 @@ const DATA = [
   {name:"Vega X",rating:4.4,avatar:"https://vegax.gg/assets/img/V_logo_white.png",version:"2.720.1167",versionVng:null,status:"online",statusVng:null,platforms:["android"],downloadUrl:"https://github.com/1f0yt/community/releases",downloadVngUrl:null},
   
   {name:"Bunni.lol",rating:4.6,avatar:"https://files.catbox.moe/hd9264.webp",version:"db4634f0e27d4d36",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://bunni.fun/",downloadVngUrl:null},
-  {name:"Velocity",rating:4.4,avatar:"https://files.catbox.moe/tj6brv.png",version:"acc4b74f79e743b9",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://gofile.io/d/qpOZtq",downloadVngUrl:null},
+  {name:"Velocity",rating:4.4,avatar:"https://files.catbox.moe/tj6brv.png",version:"4b6315bf1f0a4dbb",versionVng:null,status:"online",statusVng:null,platforms:["windows"],downloadUrl:"https://gofile.io/d/qpOZtq",downloadVngUrl:null},
   {name:"Swift",rating:4.8,avatar:"https://files.catbox.moe/5krpqt.webp",version:"89b6c70d8f7f42ac",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://getswift.vip/",downloadVngUrl:null},
   {name:"Trigon",rating:4.2,avatar:"https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp",version:"d599f7fc52a8404c",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://trigonevo.com/download?os=windows&fs=mediafire",downloadVngUrl:null},
   {name:"Madium",rating:4.6,avatar:"https://files.catbox.moe/c6crdn.webp",version:"acc4b74f79e743b9",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://gofile.io/d/MpnvOZ",downloadVngUrl:null},

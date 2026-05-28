@@ -16,5 +16,5 @@ const DATA = [
   {name:"Velocity",rating:4.4,avatar:"https://files.catbox.moe/tj6brv.png",version:"460909c4fe904aae",versionVng:null,status:"online",statusVng:null,platforms:["windows"],downloadUrl:"https://gofile.io/d/qpOZtq",downloadVngUrl:null},
   {name:"Swift",rating:4.8,avatar:"https://files.catbox.moe/5krpqt.webp",version:"89b6c70d8f7f42ac",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://getswift.vip/",downloadVngUrl:null},
   {name:"Trigon",rating:4.2,avatar:"https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp",version:"d599f7fc52a8404c",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://trigonevo.com/download?os=windows&fs=mediafire",downloadVngUrl:null},
-  {name:"Madium",rating:4.6,avatar:"https://files.catbox.moe/c6crdn.webp",version:"2b1721d47abf49aa",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://filerift.com/file/w3Zpjdoc10",downloadVngUrl:null},
+  {name:"Madium",rating:4.6,avatar:"https://files.catbox.moe/c6crdn.webp",version:"460909c4fe904aae",versionVng:null,status:"online",statusVng:null,platforms:["windows"],downloadUrl:"https://filerift.com/file/w3Zpjdoc10",downloadVngUrl:null},
 ];

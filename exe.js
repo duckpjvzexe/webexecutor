@@ -10,6 +10,6 @@ const DATA = [
   
   {name:"Vega X",rating:4.4,avatar:"https://vegax.gg/assets/img/V_logo_white.png",version:"2.723.787",versionVng:null,status:"online",statusVng:null,platforms:["android"],downloadUrl:"https://github.com/1f0yt/community/releases",downloadVngUrl:null},
   
-  {name:"Velocity",rating:4.4,avatar:"https://files.catbox.moe/tj6brv.png",version:"76173e47a79145c7",versionVng:null,status:"online",statusVng:null,platforms:["windows"],downloadUrl:"https://gofile.io/d/WrRlO0",downloadVngUrl:null},
+  {name:"Velocity",rating:4.4,avatar:"https://files.catbox.moe/tj6brv.png",version:"76173e47a79145c7",versionVng:null,status:"online",statusVng:null,platforms:["windows"],downloadUrl:"https://gofile.io/d/NidoTO",downloadVngUrl:null},
   {name:"Madium",rating:4.6,avatar:"https://files.catbox.moe/c6crdn.webp",version:"460909c4fe904aae",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://filerift.com/file/w3Zpjdoc10",downloadVngUrl:null},
 ];

@@ -1,5 +1,5 @@
 const DATA = [
-  {name:"Arceus X NEO",rating:4.5,avatar:"https://files.catbox.moe/6l8y21.webp",version:"2.723.787",versionVng:"2.716.875",status:"online",statusVng:"offline",platforms:["android"],downloadUrl:"https://android.spdmteam.com/",downloadVngUrl:"https://vng.spdmteam.com/"},
+  {name:"Arceus X NEO",rating:4.5,avatar:"https://files.catbox.moe/6l8y21.webp",version:"2.724.735",versionVng:"2.716.875",status:"online",statusVng:"offline",platforms:["android"],downloadUrl:"https://android.spdmteam.com/",downloadVngUrl:"https://vng.spdmteam.com/"},
   
   {name:"Codex",rating:4.8,avatar:"https://files.catbox.moe/t43q3r.webp",version:"2.723.787",versionVng:"2.723.785",status:"online",statusVng:"online",platforms:["android"],downloadUrl:"https://bom.so/03kXno",downloadVngUrl:"https://bom.so/3OTTJS"},
   

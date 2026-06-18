@@ -3,8 +3,8 @@ const DATA = [
   
   {name:"Codex",rating:4.8,avatar:"https://files.catbox.moe/t43q3r.webp",version:"2.724.735",versionVng:"2.724.735",status:"online",statusVng:"online",platforms:["android"],downloadUrl:"https://www.mediafire.com/file/mjuct6hu6v31u42/Codex+v2.724.735.apk/file",downloadVngUrl:"https://bom.so/fOuVvg"},
   
-  {name:"Delta",rating:4.9,avatar:"https://deltaexploits.gg/assets/favicon.ico",version:"2.724.735",versionVng:"2.724.735",status:"online",statusVng:"online",platforms:["android"],downloadUrl:"https://gloopup.net/Delta/android/",downloadVngUrl:"https://bom.so/MRlFOh",warn:true},
-  {name:"Delta",rating:4.9,avatar:"https://deltaexploits.gg/assets/favicon.ico",version:"2.725.1142",versionVng:"2.725.1142",status:"online",statusVng:"online",platforms:["ios"],downloadUrl:"https://cdn.glopdelivery.com/file/Delta-2.725.1142.ipa",downloadVngUrl:"https://bom.so/xWHPyK",warn:true},
+  {name:"Delta",rating:4.9,avatar:"https://deltaexploits.gg/assets/favicon.ico",version:"2.724.735",versionVng:"2.724.735",status:"online",statusVng:"online",platforms:["android"],downloadUrl:"https://gloopup.net/Delta/android/",downloadVngUrl:"https://bom.so/MRlFOh"},
+  {name:"Delta",rating:4.9,avatar:"https://deltaexploits.gg/assets/favicon.ico",version:"2.725.1142",versionVng:"2.725.1142",status:"online",statusVng:"online",platforms:["ios"],downloadUrl:"https://cdn.glopdelivery.com/file/Delta-2.725.1142.ipa",downloadVngUrl:"https://bom.so/xWHPyK"},
   
   {name:"Trigon",rating:4.5,avatar:"https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp",version:"2.724.735",versionVng:null,status:"online",statusVng:null,platforms:["android"],downloadUrl:"https://trigonevo.com/download?os=android&fs=mediafire",downloadVngUrl:null},
   

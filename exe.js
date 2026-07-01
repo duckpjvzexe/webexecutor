@@ -6,7 +6,7 @@ const DATA = [
   {name:"Delta",rating:4.9,avatar:"https://deltaexploits.gg/assets/favicon.ico",version:"2.727.1199",versionVng:"2.727.1199",status:"online",statusVng:"online",platforms:["android"],downloadUrl:"https://gloopup.net/Delta/android/",downloadVngUrl:"https://bom.so/ohSvJQ"},
   {name:"Delta",rating:4.9,avatar:"https://deltaexploits.gg/assets/favicon.ico",version:"2.727.1199",versionVng:"2.725.1142",status:"online",statusVng:"online",platforms:["ios"],downloadUrl:"https://cdn.glopdelivery.com/file/Delta-2.727.1199.ipa",downloadVngUrl:"https://bom.so/xWHPyK"},
   
-  {name:"Trigon",rating:4.5,avatar:"https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp",version:"2.724.735",versionVng:null,status:"online",statusVng:null,platforms:["android"],downloadUrl:"https://trigonevo.com/download?os=android&fs=mediafire",downloadVngUrl:null},
+  {name:"Trigon",rating:4.5,avatar:"https://img.upanh.moe/ynRPDwBx/81e69e89eab4.webp",version:"2.726.1142",versionVng:null,status:"online",statusVng:null,platforms:["android"],downloadUrl:"https://trigonevo.com/download?os=android&fs=mediafire",downloadVngUrl:null},
   
   {name:"Vega X",rating:4.4,avatar:"https://vegax.gg/assets/img/V_logo_white.png",version:"2.726.1142",versionVng:null,status:"online",statusVng:null,platforms:["android"],downloadUrl:"https://github.com/1f0yt/community/releases",downloadVngUrl:null},
   

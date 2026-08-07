@@ -46,26 +46,40 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
+function formatVersion(version) {
+  const str = String(version || "—");
+  if (str.length >= 11) {
+    return str.slice(0, 7) + "...";
+  }
+  return str;
+}
+
 function createCard(item) {
   const hasMobile = item.platforms.includes("android") || item.platforms.includes("ios");
   const hasVng = hasMobile && (item.versionVng || item.statusVng);
   const safeUrl = item.downloadUrl || "";
 
+  const globalVersionRaw = item.version || "—";
+  const globalVersionFormatted = formatVersion(globalVersionRaw);
+
   const globalMeta = `
-    <span class="meta-group global" title="Global Version ${escapeHtml(item.version || "—")} · ${escapeHtml(capitalize(item.status))}">
+    <span class="meta-group global" title="Global Version ${escapeHtml(globalVersionRaw)} · ${escapeHtml(capitalize(item.status))}">
       <span class="meta-label">GLOBAL</span>
-      <span class="version-chip">${escapeHtml(item.version || "—")}</span>
+      <span class="version-chip">${escapeHtml(globalVersionFormatted)}</span>
       <span class="status-badge status-${statusClass(item.status)}">
         <span class="dot ${statusClass(item.status)}"></span>
         ${escapeHtml(capitalize(item.status))}
       </span>
     </span>`;
 
+  const vngVersionRaw = item.versionVng || "—";
+  const vngVersionFormatted = formatVersion(vngVersionRaw);
+
   const vngMeta = hasVng
     ? `
-      <span class="meta-group vng" title="VNG Version ${escapeHtml(item.versionVng || "—")} · ${escapeHtml(capitalize(item.statusVng))}">
+      <span class="meta-group vng" title="VNG Version ${escapeHtml(vngVersionRaw)} · ${escapeHtml(capitalize(item.statusVng))}">
         <span class="meta-label">VNG</span>
-        <span class="version-chip">${escapeHtml(item.versionVng || "—")}</span>
+        <span class="version-chip">${escapeHtml(vngVersionFormatted)}</span>
         <span class="status-badge status-${statusClass(item.statusVng)}">
           <span class="dot ${statusClass(item.statusVng)}"></span>
           ${escapeHtml(capitalize(item.statusVng))}
@@ -241,7 +255,7 @@ closeButton.addEventListener("click", closeDownloadModal);
 directButton.addEventListener("click", () => {
   if (!selectedDownloadUrl) return;
   window.open(selectedDownloadUrl, "_blank", "noopener");
-  closeDownloadModal();
+  close.closeDownloadModal();
 });
 copyButton.addEventListener("click", copyDownloadLink);
 

@@ -11,6 +11,6 @@ const DATA = [
   {name:"Vega X",rating:4.4,avatar:"https://vegax.gg/assets/img/V_logo_white.png",version:"2.732.1043",versionVng:null,status:"online",statusVng:null,platforms:["android"],downloadUrl:"https://github.com/1f0yt/community/releases",downloadVngUrl:null},
   
   {name:"Velocity",rating:4.4,avatar:"https://files.catbox.moe/tj6brv.png",version:"145f189a6a974303",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://gofile.io/d/6HAQxH",downloadVngUrl:null},
-  {name:"Madium",rating:4.6,avatar:"https://files.catbox.moe/c6crdn.webp",version:"145f189a6a974303",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://olemad.fromsmash.com/MadInstaller",downloadVngUrl:null},
+  {name:"Madium",rating:4.6,avatar:"https://files.catbox.moe/c6crdn.webp",version:"d584fb6c717a43d9",versionVng:null,status:"online",statusVng:null,platforms:["windows"],downloadUrl:"https://olemad.fromsmash.com/MadInstaller",downloadVngUrl:null},
   {name:"Real",rating:4.6,avatar:"https://bom.so/bcqCMj",version:"145f189a6a974303",versionVng:null,status:"offline",statusVng:null,platforms:["windows"],downloadUrl:"https://projectreal.gg/download/",downloadVngUrl:null},
 ];

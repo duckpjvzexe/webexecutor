@@ -1,109 +1,147 @@
 <!doctype html>
-<html lang="en">
+<html lang="vi">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Duck Community - Roblox Executors</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Duck Community - Roblox Executors</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
-<div class="app">
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
 
-  <nav class="navbar">
-    <div class="navbar-left">
-      <div class="navbar-logo">
-        <img src="https://files.catbox.moe/19t3ey.png" alt="Logo" />
+  <div class="app">
+    <nav class="navbar">
+      <div class="navbar-left">
+        <div class="navbar-logo">
+          <img src="https://files.catbox.moe/19t3ey.png" alt="Duck Community logo" />
+        </div>
+        <span class="navbar-title">Roblox Executors</span>
       </div>
-      <span class="navbar-title">Roblox Executors</span>
+      <div class="navbar-right">
+        <button class="btn-discord" type="button" onclick="window.open('https://discord.gg/ekxRybWgmh', '_blank', 'noopener')">
+          Join Discord
+        </button>
+      </div>
+    </nav>
+
+    <div class="wrap">
+      <header class="hero">
+        <p class="hero-eyebrow">Duck Community</p>
+        <h1>Find the Executor<br /><span class="gradient-text">You Want</span></h1>
+        <p class="hero-sub">Search and discover the best Roblox executors for your platform</p>
+
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-label">Total</div>
+            <div class="stat-value" id="total-count">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Working</div>
+            <div class="stat-value working" id="working-count">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Down</div>
+            <div class="stat-value down" id="down-count">0</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-label">Updating</div>
+            <div class="stat-value updating" id="updating-count">0</div>
+          </div>
+        </div>
+
+        <div class="controls-row">
+          <div class="search-wrap">
+            <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input id="q" class="search" type="search" placeholder="Search executors..." aria-label="Search executors" />
+          </div>
+          <select id="filter" class="select" aria-label="Filter status">
+            <option value="all">All Status</option>
+            <option value="working">Working</option>
+            <option value="down">Down</option>
+            <option value="updating">Updating</option>
+            <option value="hasVng">Has VNG</option>
+          </select>
+        </div>
+
+        <div class="platform-row">
+          <button class="platform-btn active" type="button" data-platform="all">All Platforms</button>
+          <button class="platform-btn" type="button" data-platform="android">Android</button>
+          <button class="platform-btn" type="button" data-platform="ios">iOS</button>
+          <button class="platform-btn" type="button" data-platform="windows">Windows</button>
+          <button class="platform-btn" type="button" data-platform="macos">macOS</button>
+        </div>
+      </header>
+
+      <main>
+        <div id="android-section" class="platform-section">
+          <h2 class="section-title">Android <span class="section-count" id="android-count">0</span></h2>
+          <div id="grid-android" class="grid"></div>
+        </div>
+        <div id="ios-section" class="platform-section">
+          <h2 class="section-title">iOS <span class="section-count" id="ios-count">0</span></h2>
+          <div id="grid-ios" class="grid"></div>
+        </div>
+        <div id="windows-section" class="platform-section">
+          <h2 class="section-title">Windows <span class="section-count" id="windows-count">0</span></h2>
+          <div id="grid-windows" class="grid"></div>
+        </div>
+        <div id="macos-section" class="platform-section">
+          <h2 class="section-title">macOS <span class="section-count" id="macos-count">0</span></h2>
+          <div id="grid-macos" class="grid"></div>
+        </div>
+
+        <div id="empty-state" class="empty-state" hidden>
+          <div class="empty-title">No executors found</div>
+          <div class="empty-sub">Try adjusting your search or filters</div>
+        </div>
+      </main>
     </div>
-    <div class="navbar-right">
-      <button class="btn-discord" onclick="window.open('https://discord.gg/ekxRybWgmh','_blank')">
-        Join Discord
-      </button>
-    </div>
-  </nav>
-
-  <div class="wrap">
-    <header class="hero">
-      <p class="hero-eyebrow">Duck Community</p>
-      <h1>Find the Executor<br /><span class="gradient-text">You Want</span></h1>
-      <p class="hero-sub">Search and discover the best Roblox executors for your platform</p>
-
-      <div class="stats-row">
-        <div class="stat-card">
-          <div class="stat-label">Total</div>
-          <div class="stat-value" id="total-count">0</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Online</div>
-          <div class="stat-value online" id="online-count">0</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">Offline</div>
-          <div class="stat-value offline" id="offline-count">0</div>
-        </div>
-      </div>
-
-      <div class="controls-row">
-        <div class="search-wrap">
-          <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-          </svg>
-          <input id="q" class="search" placeholder="Search executors..." />
-        </div>
-        <select id="filter" class="select">
-          <option value="all">All Status</option>
-          <option value="online">Online</option>
-          <option value="offline">Offline</option>
-          <option value="hasVng">Has VNG</option>
-        </select>
-      </div>
-
-      <div class="platform-row">
-        <button class="platform-btn active" onclick="showOnly('all',this)">All Platforms</button>
-        <button class="platform-btn" onclick="showOnly('android',this)">Android</button>
-        <button class="platform-btn" onclick="showOnly('ios',this)">iOS</button>
-        <button class="platform-btn" onclick="showOnly('windows',this)">Windows</button>
-        <button class="platform-btn" onclick="showOnly('macos',this)">macOS</button>
-      </div>
-    </header>
-
-    <main>
-      <div id="android-section" class="platform-section">
-        <h2 class="section-title">Android <span class="section-count" id="android-count">0</span></h2>
-        <div id="grid-android" class="grid"></div>
-      </div>
-      <div id="ios-section" class="platform-section">
-        <h2 class="section-title">iOS <span class="section-count" id="ios-count">0</span></h2>
-        <div id="grid-ios" class="grid"></div>
-      </div>
-      <div id="windows-section" class="platform-section">
-        <h2 class="section-title">Windows <span class="section-count" id="windows-count">0</span></h2>
-        <div id="grid-windows" class="grid"></div>
-      </div>
-      <div id="macos-section" class="platform-section">
-        <h2 class="section-title">macOS <span class="section-count" id="macos-count">0</span></h2>
-        <div id="grid-macos" class="grid"></div>
-      </div>
-
-      <div id="empty-state" class="empty-state" style="display:none">
-        <div class="empty-title">No executors found</div>
-        <div class="empty-sub">Try adjusting your search or filters</div>
-      </div>
-    </main>
   </div>
-</div>
 
-<script src="exe.js"></script>
-<script src="script.js"></script>
+  <div id="download-modal" class="download-modal" role="dialog" aria-modal="true" aria-labelledby="download-title" aria-hidden="true">
+    <div class="download-dialog" role="document">
+      <button id="modal-close" class="modal-close" type="button" aria-label="Close">&times;</button>
+      <p class="modal-kicker">Download options</p>
+      <h2 id="download-title">Choose how to continue</h2>
+      <p class="modal-description">Choose whether to open the download link directly or copy it for later.</p>
 
+      <div class="selected-download">
+        <img id="selected-download-logo" class="selected-download-logo" src="" alt="" />
+        <span id="selected-download-name">Executor</span>
+      </div>
+
+      <div class="download-options">
+        <button id="direct-download" class="download-option" type="button">
+          <span class="option-icon" aria-hidden="true">↓</span>
+          <span class="option-copy">
+            <span class="option-title">Open directly</span>
+            <span class="option-hint">Open the download link in a new tab</span>
+          </span>
+        </button>
+        <button id="copy-download-link" class="download-option" type="button">
+          <span class="option-icon" aria-hidden="true">⌘</span>
+          <span class="option-copy">
+            <span class="option-title">Copy link</span>
+            <span class="option-hint">Copy the download link to your clipboard</span>
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite">
+    <span aria-hidden="true">✓</span>
+    <span id="toast-message">Download link copied</span>
+  </div>
+
+  <script src="exe.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

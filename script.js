@@ -1,145 +1,258 @@
-let currentPlatform = 'all';
-let prioritizeOnline = true;
-const q = document.getElementById('q');
-const filter = document.getElementById('filter');
+let currentPlatform = "all";
+let selectedDownloadUrl = "";
 
-function stars(n) {
-  const full = Math.floor(n), half = (n - full) >= 0.5;
-  let s = '';
-  for (let i = 0; i < 5; i++) {
-    const cls = i < full ? 'filled' : (i === full && half ? 'half' : 'empty');
-    s += `<span class="star ${cls}">★</span>`;
+const q = document.getElementById("q");
+const filter = document.getElementById("filter");
+const modal = document.getElementById("download-modal");
+const closeButton = document.getElementById("modal-close");
+const directButton = document.getElementById("direct-download");
+const copyButton = document.getElementById("copy-download-link");
+const selectedName = document.getElementById("selected-download-name");
+const selectedLogo = document.getElementById("selected-download-logo");
+const toast = document.getElementById("toast");
+const toastMessage = document.getElementById("toast-message");
+let toastTimer;
+
+function stars(number) {
+  const full = Math.floor(number);
+  const half = number - full >= 0.5;
+  let result = "";
+
+  for (let index = 0; index < 5; index += 1) {
+    const className = index < full
+      ? "filled"
+      : (index === full && half ? "half" : "empty");
+    result += `<span class="star ${className}">★</span>`;
   }
-  return `<div class="star-rating">${s}<span class="rating-val">${n.toFixed(1)}</span></div>`;
+
+  return `<div class="star-rating">${result}<span class="rating-val">${number.toFixed(1)}</span></div>`;
 }
 
-function dotCls(st) { return st === 'online' ? 'online' : 'offline'; }
-function cap(s) { return s ? s.charAt(0).toUpperCase() + s.slice(1) : '—'; }
+function statusClass(status) {
+  const normalized = String(status || "").toLowerCase();
+  return ["working", "down", "updating"].includes(normalized) ? normalized : "down";
+}
+
+function capitalize(value) {
+  return value ? value.charAt(0).toUpperCase() + value.slice(1) : "—";
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
 
 function createCard(item) {
-  const hasMobile = item.platforms.includes('android') || item.platforms.includes('ios');
+  const hasMobile = item.platforms.includes("android") || item.platforms.includes("ios");
   const hasVng = hasMobile && (item.versionVng || item.statusVng);
+  const safeUrl = item.downloadUrl || "";
 
-  let vngRows = '';
-  if (hasVng) {
-    vngRows = `
-      <div class="row-item">
-        <div class="label">VNG Version</div>
-        <div class="value mono">${item.versionVng || '—'}</div>
-      </div>
-      <div class="row-item">
-        <div class="label">VNG Status</div>
-        <div class="value status-val"><span class="dot ${dotCls(item.statusVng)}"></span>${cap(item.statusVng)}</div>
-      </div>`;
-  }
+  const globalMeta = `
+    <span class="meta-group global" title="Global Version ${escapeHtml(item.version || "—")} · ${escapeHtml(capitalize(item.status))}">
+      <span class="meta-label">GLOBAL</span>
+      <span class="version-chip">${escapeHtml(item.version || "—")}</span>
+      <span class="status-badge status-${statusClass(item.status)}">
+        <span class="dot ${statusClass(item.status)}"></span>
+        ${escapeHtml(capitalize(item.status))}
+      </span>
+    </span>`;
 
-  const dlDisabled = item.downloadUrl ? '' : 'disabled';
-  const dlClick = item.downloadUrl ? `onclick="window.open('${item.downloadUrl}','_blank')"` : '';
-  const vngBtn = (hasMobile && item.downloadVngUrl)
-    ? `<button class="btn btn-vng" onclick="window.open('${item.downloadVngUrl}','_blank')">VNG</button>`
-    : '';
+  const vngMeta = hasVng
+    ? `
+      <span class="meta-group vng" title="VNG Version ${escapeHtml(item.versionVng || "—")} · ${escapeHtml(capitalize(item.statusVng))}">
+        <span class="meta-label">VNG</span>
+        <span class="version-chip">${escapeHtml(item.versionVng || "—")}</span>
+        <span class="status-badge status-${statusClass(item.statusVng)}">
+          <span class="dot ${statusClass(item.statusVng)}"></span>
+          ${escapeHtml(capitalize(item.statusVng))}
+        </span>
+      </span>`
+    : "";
 
-  const warn = item.warn
+  const warning = item.warn
     ? `<div class="warn-badge"><span class="warn-dot"></span>High ban risk</div>`
-    : '';
+    : "";
 
   return `
-    <div class="card${item.warn ? ' card-warn' : ''}">
-      ${warn}
+    <div class="card${item.warn ? " card-warn" : ""}">
+      ${warning}
       <div class="card-head">
-        <div class="avatar"><img src="${item.avatar}" alt="${item.name}" onerror="this.style.display='none'" /></div>
+        <div class="avatar">
+          <img src="${escapeHtml(item.avatar)}" alt="${escapeHtml(item.name)}" onerror="this.style.display='none'" />
+        </div>
         <div class="title-block">
-          <div class="title">${item.name}</div>
-          ${stars(item.rating)}
+          <div class="title">${escapeHtml(item.name)}</div>
+          ${stars(Number(item.rating) || 0)}
         </div>
       </div>
-      <div class="row-inline">
-        <div class="row-item">
-          <div class="label">Version</div>
-          <div class="value mono">${item.version || '—'}</div>
+      <div class="download-rows">
+        <div class="download-row">
+          ${globalMeta}
+          <button class="btn btn-primary" type="button" ${safeUrl ? `data-download-url="${escapeHtml(safeUrl)}" data-download-name="${escapeHtml(`${item.name} · Global`)}" data-download-avatar="${escapeHtml(item.avatar || "")}"` : "disabled"}>Download</button>
         </div>
-        <div class="row-item">
-          <div class="label">Status</div>
-          <div class="value status-val"><span class="dot ${dotCls(item.status)}"></span>${cap(item.status)}</div>
-        </div>
-        ${vngRows}
-      </div>
-      <div class="actions">
-        <button class="btn btn-primary" ${dlDisabled} ${dlClick}>Download</button>
-        ${vngBtn}
+        ${hasVng ? `
+          <div class="download-row">
+            ${vngMeta}
+            <button class="btn btn-vng" type="button" ${item.downloadVngUrl ? `data-download-url="${escapeHtml(item.downloadVngUrl)}" data-download-name="${escapeHtml(`${item.name} · VNG`)}" data-download-avatar="${escapeHtml(item.avatar || "")}"` : "disabled"}>Download</button>
+          </div>` : ""}
       </div>
     </div>`;
 }
 
 function getFiltered() {
-  const qv = q.value.trim().toLowerCase();
-  const fv = filter.value;
-  let result = DATA.filter(it => {
-    if (qv && ![it.name, it.version, it.versionVng, it.status, it.statusVng].join(' ').toLowerCase().includes(qv)) return false;
-    if (fv === 'online' && it.status !== 'online') return false;
-    if (fv === 'offline' && it.status !== 'offline') return false;
-    if (fv === 'hasVng' && !(it.versionVng || it.downloadVngUrl)) return false;
-    return true;
-  });
+  const query = q.value.trim().toLowerCase();
+  const statusFilter = filter.value;
 
-  result.sort((a, b) => {
-    if (a.status === 'online' && b.status !== 'online') return -1;
-    if (a.status !== 'online' && b.status === 'online') return 1;
-    return b.rating - a.rating;
-  });
+  return DATA
+    .filter((item) => {
+      const searchable = [
+        item.name,
+        item.version,
+        item.versionVng,
+        item.status,
+        item.statusVng
+      ].join(" ").toLowerCase();
 
-  return result;
+      if (query && !searchable.includes(query)) return false;
+      if (["working", "down", "updating"].includes(statusFilter) && item.status !== statusFilter) return false;
+      if (statusFilter === "hasVng" && !(item.versionVng || item.downloadVngUrl)) return false;
+      return true;
+    })
+    .sort((first, second) => {
+      const priority = { working: 0, updating: 1, down: 2 };
+      if (priority[first.status] !== priority[second.status]) {
+        return priority[first.status] - priority[second.status];
+      }
+      return second.rating - first.rating;
+    });
 }
 
 function renderAll() {
   const list = getFiltered();
-  const platforms = ['android', 'ios', 'windows', 'macos'];
+  const platforms = ["android", "ios", "windows", "macos"];
   let anyVisible = false;
 
-  platforms.forEach(p => {
-    const section = document.getElementById(`${p}-section`);
-    const grid = document.getElementById(`grid-${p}`);
-    const cnt = document.getElementById(`${p}-count`);
-    if (!section || !grid) return;
+  platforms.forEach((platform) => {
+    const section = document.getElementById(`${platform}-section`);
+    const grid = document.getElementById(`grid-${platform}`);
+    const count = document.getElementById(`${platform}-count`);
+    const shouldShow = currentPlatform === "all" || currentPlatform === platform;
 
-    const show = currentPlatform === 'all' || currentPlatform === p;
-    if (!show) { section.style.display = 'none'; return; }
+    if (!shouldShow) {
+      section.style.display = "none";
+      return;
+    }
 
-    const items = list.filter(it => it.platforms.includes(p));
-    cnt.textContent = items.length;
-    if (!items.length) { section.style.display = 'none'; return; }
+    const items = list.filter((item) => item.platforms.includes(platform));
+    count.textContent = items.length;
+    section.style.display = items.length ? "block" : "none";
 
-    section.style.display = 'block';
+    if (!items.length) return;
+
     anyVisible = true;
-    grid.innerHTML = items.map(it => createCard(it)).join('');
-    grid.querySelectorAll('.card').forEach((el, i) => {
-      setTimeout(() => el.classList.add('show'), i * 40);
+    grid.innerHTML = items.map(createCard).join("");
+    grid.querySelectorAll(".card").forEach((card, index) => {
+      window.setTimeout(() => card.classList.add("show"), index * 40);
     });
   });
 
-  document.getElementById('empty-state').style.display = anyVisible ? 'none' : 'block';
-
-  const online = list.filter(it => it.status === 'online').length;
-  const offline = list.filter(it => it.status === 'offline').length;
-  document.getElementById('total-count').textContent = list.length;
-  document.getElementById('online-count').textContent = online;
-  document.getElementById('offline-count').textContent = offline;
+  document.getElementById("empty-state").hidden = anyVisible;
+  document.getElementById("total-count").textContent = list.length;
+  document.getElementById("working-count").textContent = list.filter((item) => item.status === "working").length;
+  document.getElementById("down-count").textContent = list.filter((item) => item.status === "down").length;
+  document.getElementById("updating-count").textContent = list.filter((item) => item.status === "updating").length;
 }
 
-function showOnly(platform, btn) {
-  currentPlatform = platform;
-  document.querySelectorAll('.platform-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  renderAll();
+function openDownloadModal(url, name, avatar) {
+  if (!url) return;
+
+  selectedDownloadUrl = url;
+  selectedName.textContent = name || "Executor";
+  selectedLogo.alt = name || "Executor logo";
+  selectedLogo.src = avatar || "";
+  selectedLogo.style.display = avatar ? "block" : "none";
+  modal.classList.add("open");
+  modal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  closeButton.focus();
 }
 
-q.addEventListener('input', renderAll);
-filter.addEventListener('change', renderAll);
-renderAll();
+function closeDownloadModal() {
+  modal.classList.remove("open");
+  modal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  selectedDownloadUrl = "";
+}
 
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('keydown', e => {
-  if (e.keyCode === 123) { e.preventDefault(); return false; }
-  if (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) { e.preventDefault(); return false; }
-  if (e.ctrlKey && e.keyCode === 85) { e.preventDefault(); return false; }
+function showToast(message) {
+  toastMessage.textContent = message;
+  toast.classList.add("show");
+  window.clearTimeout(toastTimer);
+  toastTimer = window.setTimeout(() => toast.classList.remove("show"), 2600);
+}
+
+async function copyDownloadLink() {
+  if (!selectedDownloadUrl) return;
+
+  try {
+    await navigator.clipboard.writeText(selectedDownloadUrl);
+  } catch {
+    const fallback = document.createElement("textarea");
+    fallback.value = selectedDownloadUrl;
+    fallback.style.position = "fixed";
+    fallback.style.opacity = "0";
+    document.body.appendChild(fallback);
+    fallback.select();
+    document.execCommand("copy");
+    fallback.remove();
+  }
+
+  closeDownloadModal();
+  showToast("Download link copied");
+}
+
+q.addEventListener("input", renderAll);
+filter.addEventListener("change", renderAll);
+
+document.querySelectorAll(".platform-btn").forEach((button) => {
+  button.addEventListener("click", () => {
+    currentPlatform = button.dataset.platform;
+    document.querySelectorAll(".platform-btn").forEach((item) => item.classList.remove("active"));
+    button.classList.add("active");
+    renderAll();
+  });
 });
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-download-url]");
+  if (!button) return;
+  openDownloadModal(
+    button.dataset.downloadUrl,
+    button.dataset.downloadName,
+    button.dataset.downloadAvatar,
+  );
+});
+
+closeButton.addEventListener("click", closeDownloadModal);
+directButton.addEventListener("click", () => {
+  if (!selectedDownloadUrl) return;
+  window.open(selectedDownloadUrl, "_blank", "noopener");
+  closeDownloadModal();
+});
+copyButton.addEventListener("click", copyDownloadLink);
+
+modal.addEventListener("click", (event) => {
+  if (event.target === modal) closeDownloadModal();
+});
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && modal.classList.contains("open")) {
+    closeDownloadModal();
+  }
+});
+
+renderAll();
